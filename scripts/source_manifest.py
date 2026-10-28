@@ -45,7 +45,7 @@ def manifest():
         if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
     )
     return {
-        str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+        path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
         for path in sorted(paths)
         if path != TARGET
     }
@@ -57,7 +57,7 @@ def main():
     args = parser.parse_args()
     observed = manifest()
     if args.check:
-        expected = json.loads(TARGET.read_text())["files"]
+        expected = json.loads(TARGET.read_text(encoding="utf-8"))["files"]
         changed = sorted(
             name for name in expected.keys() | observed.keys() if expected.get(name) != observed.get(name)
         )
@@ -75,7 +75,9 @@ def main():
                 indent=2,
                 sort_keys=True,
             )
-            + "\n"
+            + "\n",
+            encoding="utf-8",
+            newline="\n",
         )
         print(f"Wrote {len(observed)} public file hashes")
 

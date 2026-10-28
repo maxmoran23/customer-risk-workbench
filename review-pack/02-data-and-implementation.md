@@ -39,7 +39,7 @@ The workbench separates source records, feature construction, configured policy 
 
 `Customer` contains `customer_id`, `as_of`, `available_at`, `segment`, `onboarded_at`, `profile`, `expected_monthly_volume`, `source_id`, `history_start`, and `history_complete`. Profiles map policy-declared keys to normalized `[0,1]` values or explicit null. The reference policy declares twelve profile keys; custom policies can declare up to 1,000. `history_start` and `history_complete` describe retained evidence, not assumed customer lifetime. Onboarding is immutable across snapshots of the same customer.
 
-`Transaction` contains `transaction_id`, `customer_id`, `occurred_at`, `available_at`, `amount`, `direction`, `counterparty_id`, `channel`, `jurisdiction_risk`, and `source_id`. Amounts are nonnegative and pre-normalized into one declared unit. Direction is `in`/`out`; channel is `wire`/`cash`/`card`/`digital`/`other`. Jurisdiction evidence is a supplied normalized value or null; the suite contains no real country-risk table. Unit normalization and source availability timestamps are adapter responsibilities. See the [data contract](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/data-contract.md) and [generated schemas](https://github.com/maxmoran23/customer-risk-workbench/blob/main/configs).
+`Transaction` contains `transaction_id`, `customer_id`, `occurred_at`, `available_at`, `amount`, `direction`, `counterparty_id`, `channel`, `jurisdiction_risk`, and `source_id`. Amounts are nonnegative and pre-normalized into one declared unit. Direction is `in`/`out`; channel is `wire`/`cash`/`card`/`digital`/`other`. Jurisdiction evidence is a supplied normalized value or null; the suite contains no real country-risk table. Unit normalization and source availability timestamps are adapter responsibilities. See the [data contract](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/data-contract.md) and [generated schemas](https://github.com/maxmoran23/customer-risk-workbench/tree/main/configs).
 
 ```python
 features = build_features(customer, transactions, as_of, base_unit="SYNTHETIC_UNIT")
@@ -180,7 +180,7 @@ Source: `docs/example-walkthrough.md`
 
 # A compact, reproducible walkthrough
 
-The [`examples/`](https://github.com/maxmoran23/customer-risk-workbench/blob/main/examples) package contains three invented customers and 240 invented transactions. It exercises the actual parsing, feature, scoring, hypothesis and monitoring APIs without a database file or additional dependencies. The expected scores are hand-reconciled below; the executable checks also verify fixture hashes and reconstruct every input record.
+The [`examples/`](https://github.com/maxmoran23/customer-risk-workbench/tree/main/examples) package contains three invented customers and 240 invented transactions. It exercises the actual parsing, feature, scoring, hypothesis and monitoring APIs without a database file or additional dependencies. The expected scores are hand-reconciled below; the executable checks also verify fixture hashes and reconstruct every input record.
 
 ## Run it
 

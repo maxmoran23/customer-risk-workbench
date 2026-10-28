@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def read(name):
-    return json.loads((ROOT / name).read_text())
+    return json.loads((ROOT / name).read_text(encoding="utf-8"))
 
 
 def main():
@@ -87,7 +87,9 @@ def main():
     }
     assert result["automated_tests"]["failures"] == result["automated_tests"]["errors"] == 0
     assert scenarios["failed"] == 0 and numerical["passed"] and wheel["status"] == "passed"
-    (ROOT / "evidence/verification.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    (ROOT / "evidence/verification.json").write_text(
+        json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
     print(f"Recorded {result['automated_tests']['tests']} tests and {scenarios['total']} executable cases")
 
 

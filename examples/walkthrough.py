@@ -31,8 +31,8 @@ def verify_equal(actual, expected, field: str) -> None:
 
 
 def run_walkthrough(fixture_dir: Path = ROOT) -> dict:
-    manifest = json.loads((fixture_dir / "fixture-manifest.json").read_text())
-    expected = json.loads((fixture_dir / "expected-summary.json").read_text())
+    manifest = json.loads((fixture_dir / "fixture-manifest.json").read_text(encoding="utf-8"))
+    expected = json.loads((fixture_dir / "expected-summary.json").read_text(encoding="utf-8"))
     if manifest["data_status"] != "synthetic_only" or manifest["base_unit"] != "SYNTHETIC_UNIT":
         raise ValueError("this walkthrough requires its explicitly declared synthetic unit and fixtures")
     for name, sha256 in manifest["files"].items():

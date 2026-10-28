@@ -33,12 +33,12 @@ def main() -> int:
     }
     text = json.dumps(data, indent=2, sort_keys=True, allow_nan=False) + "\n"
     if args.check:
-        if not args.output.exists() or args.output.read_text() != text:
+        if not args.output.exists() or args.output.read_text(encoding="utf-8") != text:
             raise SystemExit(f"Scenario catalog is stale: regenerate {args.output}")
         print(f"Scenario catalog verified: {len(cases)} cases")
     else:
         args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(text)
+        args.output.write_text(text, encoding="utf-8", newline="\n")
         print(f"Wrote {len(cases)} cases to {args.output}")
     return 0
 

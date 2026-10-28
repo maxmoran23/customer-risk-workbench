@@ -3,7 +3,7 @@
   "packs": {
     "01-start-here.md": {
       "bytes": 24474,
-      "sha256": "e4d3fc969b13592aa1401f14c35719ef77543d18947565cc7223d68da4e804f6",
+      "sha256": "e48842c2381d4fcf8a4e99d8f0bdc849bb8cc2cb6bc1f16358fb4616b7e37ebf",
       "sources": [
         "README.md",
         "docs/reviewer-guide.md",
@@ -12,7 +12,7 @@
     },
     "02-data-and-implementation.md": {
       "bytes": 31256,
-      "sha256": "60adbf2c7ee4fa890b9ed59aa3998a14d33d4273b40913646f57e35907324fd6",
+      "sha256": "dce0c289444251a9d09ca3a503bfa4d6339d8c1f1daa5c3a877f67f735f1d477",
       "sources": [
         "docs/architecture.md",
         "docs/data-contract.md",

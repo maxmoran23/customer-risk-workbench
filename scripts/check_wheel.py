@@ -49,8 +49,8 @@ def main():
             run("-m", "crw", "demo", "--customers", "12", "--transactions", "80", "--out", "demo")
         )
         assert output["replay_identical"] and output["scenarios"] == {"total": 96, "passed": 96, "failed": 0}
-        report = json.loads((temporary / "demo/demo-report.json").read_text())
-        html = (temporary / "demo/workbench.html").read_text()
+        report = json.loads((temporary / "demo/demo-report.json").read_text(encoding="utf-8"))
+        html = (temporary / "demo/workbench.html").read_text(encoding="utf-8")
         assert '<script id="workbench-data"' in html and "__REPORT_JSON__" not in html
         result = {
             "status": "passed",
@@ -69,7 +69,7 @@ def main():
         }
     target = Path(args.out)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    target.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(result, indent=2))
 
 

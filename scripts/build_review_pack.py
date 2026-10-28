@@ -67,9 +67,8 @@ def portable_links(content: str, source: str) -> str:
         if ":" in target or target.startswith("#"):
             return match.group(0)
         resolved = posixpath.normpath(posixpath.join(posixpath.dirname(source), target))
-        return (
-            f"[{match.group(1)}](https://github.com/maxmoran23/customer-risk-workbench/blob/main/{resolved})"
-        )
+        route = "tree" if (ROOT / resolved.split("#")[0]).is_dir() else "blob"
+        return f"[{match.group(1)}](https://github.com/maxmoran23/customer-risk-workbench/{route}/main/{resolved})"
 
     return re.sub(r"\[([^\]]+)\]\(([^\s)]+)\)", replace, content)
 
@@ -88,17 +87,19 @@ def main():
             "Source repository: https://github.com/maxmoran23/customer-risk-workbench\n\nAttachment groups preserve full methods; source code and runnable tests remain in the repository.",
         ]
         for file in files:
-            content = (ROOT / file).read_text()
+            content = (ROOT / file).read_text(encoding="utf-8")
             manifest["source_files"][file] = hashlib.sha256(content.encode()).hexdigest()
             sections.extend(["\n---\n\nSource: `" + file + "`\n", portable_links(content, file)])
         text = "\n\n".join(sections).rstrip() + "\n"
-        (out / name).write_text(text)
+        (out / name).write_text(text, encoding="utf-8", newline="\n")
         manifest["packs"][name] = {
             "sha256": hashlib.sha256(text.encode()).hexdigest(),
             "bytes": len(text.encode()),
             "sources": files,
         }
-    (out / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    (out / "manifest.json").write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
     print(f"Built {len(PACKS)} complete review attachments at {out}")
 
 

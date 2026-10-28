@@ -1,7 +1,9 @@
 import json
+from pathlib import Path
 import re
 import shutil
 import subprocess
+import tempfile
 
 import pytest
 
@@ -13,7 +15,7 @@ def test_embedded_report_roundtrips_without_executable_script_termination(tmp_pa
     report = {"meta": {"version": "test", "note": hostile}, "customers": []}
     target = tmp_path / "nested" / "workbench.html"
     render_workbench(report, target)
-    html = target.read_text()
+    html = target.read_text(encoding="utf-8")
     payload = re.search(r'<script id="workbench-data" type="application/json">(.*?)</script>', html, re.S).group(1)
     assert json.loads(payload) == report
     assert "<" not in payload and ">" not in payload and "&" not in payload
@@ -58,8 +60,8 @@ def test_javascript_syntax_is_valid(tmp_path):
     scripts = re.findall(r'<script>(.*?)</script>', _TEMPLATE, re.S)
     assert len(scripts) == 1
     source = tmp_path / "viewer.js"
-    source.write_text(scripts[0])
-    result = subprocess.run([_node(), "--check", str(source)], capture_output=True, text=True)
+    source.write_text(scripts[0], encoding="utf-8")
+    result = subprocess.run([_node(), "--check", str(source)], capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
 
 
@@ -83,7 +85,7 @@ for(const args of [[30,30],[-1,60],[50,101],[NaN,50]]){
 if(escapeHTML('<img onerror="attack">&')!=='&lt;img onerror=&quot;attack&quot;&gt;&amp;')throw Error('HTML escaping failed');
 console.log('threshold cases passed');
 '''
-    result = subprocess.run([_node(), "--eval", source], capture_output=True, text=True)
+    result = subprocess.run([_node(), "--eval", source], capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
     assert "threshold cases passed" in result.stdout
 
@@ -92,13 +94,18 @@ def _run_render_function(expression, report=None):
     script = re.findall(r'<script>(.*?)</script>', _TEMPLATE, re.S)[0]
     declarations = script.split('try{initialize();}', 1)[0]
     harness = '''
-const document={getElementById:()=>({textContent:process.argv[1]})};
+const reportText=require('fs').readFileSync(0,'utf8');
+const document={getElementById:()=>({textContent:reportText})};
 '''
     source = harness + declarations + '\nconsole.log(' + expression + ');'
-    result = subprocess.run(
-        [_node(), '--eval', source, json.dumps(report or {'meta': {}, 'customers': []})],
-        capture_output=True, text=True,
-    )
+    with tempfile.TemporaryDirectory(prefix="crw-render-test-") as directory:
+        script_path = Path(directory) / "render-harness.cjs"
+        script_path.write_text(source, encoding="utf-8")
+        result = subprocess.run(
+            [_node(), str(script_path)],
+            input=json.dumps(report or {'meta': {}, 'customers': []}, ensure_ascii=False),
+            capture_output=True, text=True, encoding="utf-8",
+        )
     assert result.returncode == 0, result.stderr
     return result.stdout
 
@@ -145,7 +152,7 @@ for(const key of ['source_rows','threshold_selection','training_metadata']){
 if(frozenIntegrityPreserved({integrity:{}}))throw Error('absent integrity accepted');
 console.log('frozen integrity checked');
 '''
-    result = subprocess.run([_node(), '--eval', source], capture_output=True, text=True)
+    result = subprocess.run([_node(), '--eval', source], capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
 
 
@@ -161,6 +168,7 @@ def test_frozen_model_view_renders_paired_workload_metrics_and_integrity():
             'name': 'missing_input', 'metrics': {'roc_auc': {'value': .625}, 'brier': {'value': .2}},
             'workload': {'baseline_review_count': 2, 'stressed_review_count': 4},
             'paired_changes': {'mean_absolute_probability_change': .025, 'label_flips': 0},
+            'interpretation': 'Synthetic probability change Δ; UTF-8 café fixture',
         }],
     }
     research = {'frozen_model_stress': [{'seed': 7, 'models': {'logistic': model}}]}
@@ -171,6 +179,7 @@ def test_frozen_model_view_renders_paired_workload_metrics_and_integrity():
     assert '0.7500 / 0.6250' in html
     assert '0.1500 / 0.2000' in html
     assert '2 / 4' in html
+    assert 'Synthetic probability change Δ; UTF-8 café fixture' in html
     assert 'Preserved' in html
     model['integrity']['threshold_reselected'] = True
     invalid = _run_render_function('renderFrozenStress(DATA.research)', {'meta': {}, 'research': research})

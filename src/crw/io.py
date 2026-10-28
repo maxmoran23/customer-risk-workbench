@@ -29,7 +29,7 @@ def atomic_json(path: str | Path, value) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=path.parent)
     try:
-        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
             json.dump(value, stream, sort_keys=True, indent=2, allow_nan=False)
             stream.write("\n")
         os.replace(temporary, path)
@@ -44,7 +44,7 @@ def write_jsonl(path: str | Path, rows: Iterable) -> int:
     fd, temporary = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=path.parent)
     n = 0
     try:
-        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
             for row in rows:
                 data = row.to_dict() if hasattr(row, "to_dict") else row
                 stream.write(json.dumps(data, sort_keys=True, allow_nan=False) + "\n")
