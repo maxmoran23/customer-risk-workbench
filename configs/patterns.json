@@ -1,0 +1,490 @@
+[
+  {
+    "benign_explanation": "Cash-dependent seasonal trade",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        },
+        {
+          "feature": "txn.30d.expected_volume_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 2
+        }
+      ]
+    },
+    "hypothesis": "Cash volume above declared activity merits contextual evidence collection.",
+    "id": "cash_volume",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Seasonal sales, deposits, and declared expected activity",
+    "title": "Cash volume above declared activity"
+  },
+  {
+    "benign_explanation": "Holiday retail demand",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        },
+        {
+          "feature": "txn.30d.growth_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 3
+        }
+      ]
+    },
+    "hypothesis": "Growing cash concentration merits contextual evidence collection.",
+    "id": "cash_growth",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Comparable seasonal history and revenue corroboration",
+    "title": "Growing cash concentration"
+  },
+  {
+    "benign_explanation": "Documented international supply chain",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.high_risk_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        },
+        {
+          "feature": "txn.30d.expected_volume_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 2
+        }
+      ]
+    },
+    "hypothesis": "Elevated geography exposure and volume merits contextual evidence collection.",
+    "id": "geography_volume",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Counterparty locations, actual purpose, source mapping",
+    "title": "Elevated geography exposure and volume"
+  },
+  {
+    "benign_explanation": "Complex lawful multinational structure",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile.geography_exposure",
+          "op": "gte",
+          "value": 0.6
+        },
+        {
+          "feature": "profile.ownership_opacity",
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Geography exposure with opaque ownership merits contextual evidence collection.",
+    "id": "geography_opacity",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Verified ownership and business explanation",
+    "title": "Geography exposure with opaque ownership"
+  },
+  {
+    "benign_explanation": "Treasury sweeps or settlement",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.flow_through",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.85
+        },
+        {
+          "feature": "txn.30d.growth_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 3
+        }
+      ]
+    },
+    "hypothesis": "Balanced flows with activity growth merits contextual evidence collection.",
+    "id": "flow_growth",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Account purpose and actual linked transfer tracing",
+    "title": "Balanced flows with activity growth"
+  },
+  {
+    "benign_explanation": "Single merchant acquirer or payroll provider",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.flow_through",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.85
+        },
+        {
+          "feature": "txn.30d.concentration",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.5
+        }
+      ]
+    },
+    "hypothesis": "Balanced flows concentrated in counterparties merits contextual evidence collection.",
+    "id": "flow_concentration",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Counterparty identity and contractual relationship",
+    "title": "Balanced flows concentrated in counterparties"
+  },
+  {
+    "benign_explanation": "Lawful digital asset settlement",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.digital_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "txn.30d.expected_volume_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 2
+        }
+      ]
+    },
+    "hypothesis": "Digital channel with elevated volume merits contextual evidence collection.",
+    "id": "digital_volume",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Platform purpose, source and destination evidence",
+    "title": "Digital channel with elevated volume"
+  },
+  {
+    "benign_explanation": "Authorized international service",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.digital_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "txn.30d.high_risk_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Digital channel and geography exposure merits contextual evidence collection.",
+    "id": "digital_geography",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Mapped jurisdictions and transaction purpose",
+    "title": "Digital channel and geography exposure"
+  },
+  {
+    "benign_explanation": "Incomplete onboarding documentation",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile.ownership_opacity",
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "profile.source_of_funds_concern",
+          "op": "gte",
+          "value": 0.5
+        }
+      ]
+    },
+    "hypothesis": "Opaque ownership and source-of-funds concerns merits contextual evidence collection.",
+    "id": "ownership_funds",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Ownership chain and independently corroborated funds",
+    "title": "Opaque ownership and source-of-funds concerns"
+  },
+  {
+    "benign_explanation": "Legitimate multi-entity enterprise",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile.business_complexity",
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "profile.documentation_gap",
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Complex structure with documentation gaps merits contextual evidence collection.",
+    "id": "complexity_docs",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Entity purpose, operational footprint, legal structure",
+    "title": "Complex structure with documentation gaps"
+  },
+  {
+    "benign_explanation": "Name ambiguity or unrelated allegations",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile.pep_exposure",
+          "op": "gte",
+          "value": 0.5
+        },
+        {
+          "feature": "profile.adverse_information",
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "PEP exposure with separate adverse information merits contextual evidence collection.",
+    "id": "pep_corroboration",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Identity resolution, source reliability and relevant chronology",
+    "title": "PEP exposure with separate adverse information"
+  },
+  {
+    "benign_explanation": "Documented intermediary service",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile.channel_opacity",
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "profile.source_of_funds_concern",
+          "op": "gte",
+          "value": 0.5
+        }
+      ]
+    },
+    "hypothesis": "Opaque channel and funds concerns merits contextual evidence collection.",
+    "id": "channel_funds",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Intermediary controls and underlying transaction purpose",
+    "title": "Opaque channel and funds concerns"
+  },
+  {
+    "benign_explanation": "One recurring cash deposit pattern",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.last4.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.8
+        },
+        {
+          "feature": "txn.last10.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Recent-event cash concentration merits contextual evidence collection.",
+    "id": "recent_cash",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Longer history and customer business context",
+    "title": "Recent-event cash concentration"
+  },
+  {
+    "benign_explanation": "Ordinary payment settlement",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.last4.flow_through",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.9
+        },
+        {
+          "feature": "txn.last10.flow_through",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.8
+        }
+      ]
+    },
+    "hypothesis": "Balanced recent incoming and outgoing amounts merits contextual evidence collection.",
+    "id": "recent_balanced",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Time-ordered linkage; aggregates do not establish pass-through",
+    "title": "Balanced recent incoming and outgoing amounts"
+  },
+  {
+    "benign_explanation": "Stable cash-intensive business",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.7d.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "txn.90d.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Short and long cash exposure merits contextual evidence collection.",
+    "id": "short_long_cash",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Consistency with nature and purpose of relationship",
+    "title": "Short and long cash exposure"
+  },
+  {
+    "benign_explanation": "Business expansion and unrelated adverse item",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.expected_volume_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 3
+        },
+        {
+          "feature": "profile.adverse_information",
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Volume change with corroborated adverse information merits contextual evidence collection.",
+    "id": "volume_adverse",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Relevance, reliability, event chronology",
+    "title": "Volume change with corroborated adverse information"
+  },
+  {
+    "benign_explanation": "Unchanged business with delayed documentation",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile_age_days",
+          "op": "gte",
+          "value": 365
+        },
+        {
+          "feature": "profile.business_complexity",
+          "op": "gte",
+          "value": 0.7
+        }
+      ]
+    },
+    "hypothesis": "Stale profile for complex activity merits contextual evidence collection.",
+    "id": "stale_complex",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Refresh triggered by material changes, policy context",
+    "title": "Stale profile for complex activity"
+  },
+  {
+    "benign_explanation": "Lawful specialized investment structure",
+    "condition": {
+      "all": [
+        {
+          "feature": "profile.product_complexity",
+          "op": "gte",
+          "value": 0.7
+        },
+        {
+          "feature": "profile.ownership_opacity",
+          "op": "gte",
+          "value": 0.7
+        }
+      ]
+    },
+    "hypothesis": "Complex product and opaque ownership merits contextual evidence collection.",
+    "id": "product_ownership",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Product use rationale and beneficial ownership evidence",
+    "title": "Complex product and opaque ownership"
+  },
+  {
+    "benign_explanation": "Cash logistics service",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.cash_share",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.6
+        },
+        {
+          "feature": "txn.30d.concentration",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 0.7
+        }
+      ]
+    },
+    "hypothesis": "Cash activity concentrated in counterparties merits contextual evidence collection.",
+    "id": "concentrated_cash",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Economic counterparty definition and operating model",
+    "title": "Cash activity concentrated in counterparties"
+  },
+  {
+    "benign_explanation": "Documented asset sale",
+    "condition": {
+      "all": [
+        {
+          "feature": "txn.30d.expected_volume_ratio",
+          "full_window": true,
+          "min_support": 4,
+          "op": "gte",
+          "value": 4
+        },
+        {
+          "feature": "profile.source_of_funds_concern",
+          "op": "gte",
+          "value": 0.6
+        }
+      ]
+    },
+    "hypothesis": "Elevated activity with weak funds evidence merits contextual evidence collection.",
+    "id": "large_funds_gap",
+    "limit": "Illustrative thresholds; pattern presence does not establish suspicious activity or customer misconduct.",
+    "next_evidence": "Sale proceeds and source-of-wealth corroboration",
+    "title": "Elevated activity with weak funds evidence"
+  }
+]

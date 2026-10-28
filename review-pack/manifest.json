@@ -1,0 +1,121 @@
+{
+  "format": "public review attachments",
+  "packs": {
+    "01-start-here.md": {
+      "bytes": 24474,
+      "sha256": "e4d3fc969b13592aa1401f14c35719ef77543d18947565cc7223d68da4e804f6",
+      "sources": [
+        "README.md",
+        "docs/reviewer-guide.md",
+        "docs/limitations.md"
+      ]
+    },
+    "02-data-and-implementation.md": {
+      "bytes": 31256,
+      "sha256": "60adbf2c7ee4fa890b9ed59aa3998a14d33d4273b40913646f57e35907324fd6",
+      "sources": [
+        "docs/architecture.md",
+        "docs/data-contract.md",
+        "docs/example-walkthrough.md",
+        "templates/data-adapter-review.md"
+      ]
+    },
+    "03-scoring-and-scenarios.md": {
+      "bytes": 34657,
+      "sha256": "5da40f12081fdb63e0e1ebe52e5af315c245b891c92ac4625f6cebeb4efe716c",
+      "sources": [
+        "docs/scoring-method.md",
+        "docs/scenario-design.md",
+        "docs/typology-atlas.md",
+        "templates/scenario-workpaper.md"
+      ]
+    },
+    "04-development-and-statistics.md": {
+      "bytes": 44423,
+      "sha256": "6265d2c5b81429f60e8484bfef75f6174791b1130d6642a3702e1eb1d89a8683",
+      "sources": [
+        "docs/model-development.md",
+        "docs/statistical-methods.md",
+        "templates/development-experiment.md",
+        "templates/model-card.md"
+      ]
+    },
+    "05-validation-and-sampling.md": {
+      "bytes": 18204,
+      "sha256": "b3caf92c9634fc46312e5c2e0a1870476d4015574052237b46f00e37f79f7ea9",
+      "sources": [
+        "docs/model-validation.md",
+        "templates/validation-workpaper.md",
+        "templates/sampling-plan.md",
+        "templates/findings-and-issues.md"
+      ]
+    },
+    "06-governance-and-regulation.md": {
+      "bytes": 23623,
+      "sha256": "54f82caf750653a3014459406ff89737474bc3129e6900cc970da3323bb02263",
+      "sources": [
+        "docs/regulatory-map.md",
+        "docs/governance.md",
+        "templates/component-classification.md",
+        "templates/policy-change-review.md",
+        "templates/decision-exception.md"
+      ]
+    },
+    "07-adoption-and-ai-assistance.md": {
+      "bytes": 26004,
+      "sha256": "e53fc177c39639b9d091652e5f4f74d00a2c3c27f60f6155982642b67bfb868e",
+      "sources": [
+        "docs/adoption-guide.md",
+        "docs/ai-assistance.md",
+        "docs/operations.md",
+        "templates/adoption-decision.md",
+        "templates/monitoring-and-incident.md"
+      ]
+    },
+    "08-evidence-and-reproduction.md": {
+      "bytes": 19623,
+      "sha256": "eff1de6f5c2995a76b683cf8b22281003e650808b6c8ed88b57804a06d8855af",
+      "sources": [
+        "docs/verification.md",
+        "docs/provenance.md",
+        "CONTRIBUTING.md",
+        "SECURITY.md"
+      ]
+    }
+  },
+  "source_files": {
+    "CONTRIBUTING.md": "9ae2fedff60febd8593f86f0592e0359f67c986fd07bfff9385f7e683ff6f2f1",
+    "README.md": "9d3c6b21e8d53606079f64e541422ad362ceae2d6f51d5ca75c2349f5072797a",
+    "SECURITY.md": "9f4e324f6c8681263f8e9211eaf4ca5bf57b0cd0d03537cdf5afa044da7f473e",
+    "docs/adoption-guide.md": "8f9a7658a1c751985eab169b906cb8eb279c289320a912cf454bf41bfb9ebd8b",
+    "docs/ai-assistance.md": "a2f543361c795ce9d10efc2982bc64139c534b56400ef892a92bfba373667549",
+    "docs/architecture.md": "b64b755745dd1bce72f0de7fabd2c069392dee1db49c0b0f945be3bd0033576f",
+    "docs/data-contract.md": "bd31fc17daff124468431ce1a6b465013bd7abca56f263eb022f1a94f5d1b6fb",
+    "docs/example-walkthrough.md": "100c99237399da87983127cae9201208f32c30cf18287de56634362cda372572",
+    "docs/governance.md": "9861866ed0ef5db367fade7ee26458864e20c67d4d0cfcca85fd98d4b3df3a98",
+    "docs/limitations.md": "e86fbbe80dbce1943895c54115c7e31e19d3b811946bf53b8156654166857def",
+    "docs/model-development.md": "314469fd9bd8415498a687b392d39d1cab970e8634385a2e9eb2b40bfa8c789d",
+    "docs/model-validation.md": "61b16ab571b802d0c3e35409c27e3d97c48eba1c73ac1925ce4f6fc20479b327",
+    "docs/operations.md": "a014dea9b5d19ceb3a2867909d8ecafeeb3f1e60e5a87a1f0a16c04b8f6469b5",
+    "docs/provenance.md": "14f54f1beae91370f1959e5833342d89791b6bf2c63774d9020df07ff7ed48fc",
+    "docs/regulatory-map.md": "67d8c1733a0a1b8d03bc705f8be405899a80fa70f96085f4bd5831759ae2f11b",
+    "docs/reviewer-guide.md": "57870f687a22498885f2cc5a13cccc3ca89a446377f742607cbf281a9c3ca698",
+    "docs/scenario-design.md": "7037c39b27557773219e2c4841dee1e636e8b5114d43e6d79d9fe5ba8da5c1dc",
+    "docs/scoring-method.md": "e5ce739aec8822b9f3f991385c95d715e70d7b97c911608181a3d473e2b81bc6",
+    "docs/statistical-methods.md": "63c257bee6770930569f7441ef47490f57621cf37dfad6db22293d641c3de6d0",
+    "docs/typology-atlas.md": "456b976f14193271952e581ebaa3dccee8f7cb89adf3c6742b10409905ae9389",
+    "docs/verification.md": "c13f0683d32f98216aaa698eb6b9d3fe97737e22f6e1ef7e191a58d0bce4d63e",
+    "templates/adoption-decision.md": "6b6478d2c8e9cc4cc950b4975b6cc3be3c6e1d5d7374579b4f7160b6490c7412",
+    "templates/component-classification.md": "12e0274831eb4212e55011215e9fd66e7fabb6993567b570c343ac8b60579947",
+    "templates/data-adapter-review.md": "b50407e0342dcf2fb47228a984a40f9c3b45b2166476ecedf109016a5e7d8aaf",
+    "templates/decision-exception.md": "a057aa8687ae28c49efb6071cd025fea5e71857dbcb93a82ca353d15dba8e78e",
+    "templates/development-experiment.md": "6942fe11b43aae90409e038e9bed63684b3d3301bef3743efb6c214eee53053e",
+    "templates/findings-and-issues.md": "ae1147f7cb283967a06f3c4f1293ae588f391cfd184c87af4f6b9e88987cc136",
+    "templates/model-card.md": "b2b950848a477d9d971c0ca31f9062bb4fe40fa2f4d706b424e2daf6e4711f75",
+    "templates/monitoring-and-incident.md": "a29171642f99be528becb6eeec6ee8151a4a940e1a576dedd74478540ff13470",
+    "templates/policy-change-review.md": "ee6f927ad1ac1f7d477d585832dab60260e0f81cc2d187352672d4f3b0a06db1",
+    "templates/sampling-plan.md": "7e5b439478cdf4184fc9e18454bda2b8e937200cab2ce488d497b63e48c7476f",
+    "templates/scenario-workpaper.md": "4e5b5e842763a4cd4ad2dda967eab6125d3094cd48271e29d387ee8a49696ad9",
+    "templates/validation-workpaper.md": "b91420b2777dd4d44a45c3b9eb8616b696b3d3013b3f8ed51ab1f58b368a8c91"
+  }
+}

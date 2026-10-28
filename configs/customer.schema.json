@@ -1,0 +1,71 @@
+{
+  "$comment": "Python contract additionally enforces cross-field chronology, finite numbers and opaque identifier format.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "as_of": {
+      "description": "Explicit timezone required; canonicalized to UTC.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "available_at": {
+      "description": "Explicit timezone required; canonicalized to UTC.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "expected_monthly_volume": {
+      "minimum": 0,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "history_complete": {
+      "type": "boolean"
+    },
+    "history_start": {
+      "description": "Explicit timezone required; canonicalized to UTC.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "onboarded_at": {
+      "description": "Explicit timezone required; canonicalized to UTC.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "profile": {
+      "additionalProperties": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "type": "object"
+    },
+    "segment": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "customer_id",
+    "as_of",
+    "available_at",
+    "segment",
+    "onboarded_at",
+    "profile",
+    "expected_monthly_volume",
+    "source_id",
+    "history_start",
+    "history_complete"
+  ],
+  "title": "Customer",
+  "type": "object"
+}

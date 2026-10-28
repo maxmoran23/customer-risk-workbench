@@ -1,0 +1,142 @@
+{
+  "absolute_tolerance": 1e-12,
+  "case_manifest_sha256": "61b609d4b35bfa6deae15ae7add371e7f0c9ee98cc67d88cffff80d8d7b00897",
+  "case_seed_rule": "seed_start + case_id, case_id in [0,cases)",
+  "cases": 100,
+  "comparisons": 785,
+  "design_counts": {
+    "distribution_design": {
+      "discrete_ties": 20,
+      "exponential_scale_shift": 20,
+      "gaussian_shift": 20,
+      "identical_constant": 20,
+      "shifted_constant": 20
+    },
+    "label_design": {
+      "one_negative": 5,
+      "one_positive": 5,
+      "seeded_imbalance_with_both_classes_retained": 80,
+      "single_class_negative": 5,
+      "single_class_positive": 5
+    },
+    "probability_design": {
+      "constant_ties": 20,
+      "near_certain_correct": 20,
+      "noisy_outcome_related": 20,
+      "rounded_probability_ties": 20,
+      "three_level_ties": 20
+    }
+  },
+  "failures": [],
+  "limitations": [
+    "Only the returned KS statistic is compared; no KS p-value validity claim is made for ties.",
+    "Single-class AUC and no-positive AP return explicit nulls and are counted separately.",
+    "Probability inputs remain strictly inside (0,1), so comparisons use finite log loss.",
+    "Wilson comparisons verify endpoint arithmetic, not repeated-sampling coverage.",
+    "The seeded data are synthetic and do not assess any customer-risk model's effectiveness."
+  ],
+  "maximum_absolute_error": 1.454392162258955e-14,
+  "metrics": {
+    "average_precision": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 95,
+      "cases_skipped": 5,
+      "maximum_absolute_error": 1.454392162258955e-14,
+      "passed": true,
+      "skip_reasons": {
+        "no positive outcomes": 5
+      },
+      "worst_case_id": 79
+    },
+    "brier": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 100,
+      "cases_skipped": 0,
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "passed": true,
+      "skip_reasons": {},
+      "worst_case_id": 22
+    },
+    "ks_statistic": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 100,
+      "cases_skipped": 0,
+      "maximum_absolute_error": 1.6653345369377348e-16,
+      "passed": true,
+      "skip_reasons": {},
+      "worst_case_id": 35
+    },
+    "log_loss": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 100,
+      "cases_skipped": 0,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "passed": true,
+      "skip_reasons": {},
+      "worst_case_id": 7
+    },
+    "roc_auc": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 90,
+      "cases_skipped": 10,
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "passed": true,
+      "skip_reasons": {
+        "single outcome class": 10
+      },
+      "worst_case_id": 4
+    },
+    "wasserstein_distance": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 100,
+      "cases_skipped": 0,
+      "maximum_absolute_error": 8.881784197001252e-16,
+      "passed": true,
+      "skip_reasons": {},
+      "worst_case_id": 24
+    },
+    "wilson_lower": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 100,
+      "cases_skipped": 0,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "passed": true,
+      "skip_reasons": {},
+      "worst_case_id": 6
+    },
+    "wilson_upper": {
+      "absolute_tolerance": 1e-12,
+      "cases_compared": 100,
+      "cases_skipped": 0,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "passed": true,
+      "skip_reasons": {},
+      "worst_case_id": 31
+    }
+  },
+  "n": {
+    "binary_observations_total": 19450,
+    "maximum_case_size": 1000,
+    "minimum_case_size": 2
+  },
+  "passed": true,
+  "reproduce": "PYTHONPATH=src uv run python scripts/check_numerics.py",
+  "schema_version": "crw-numerical-crosscheck-v1",
+  "scope": "finite-sample numerical agreement only; not model efficacy, interval coverage or production validation",
+  "seed_start": 20261028,
+  "source_files": {
+    "implementation": "src/crw/validation.py",
+    "script": "scripts/check_numerics.py"
+  },
+  "source_sha256": {
+    "implementation": "3c318a059e888fae8d979e4b45b9b2d382917529ac1e17150887b9c8f44bfc3c",
+    "script": "8f5455677fc627f2d7d79d017a1f94ba1b2f8dac8d8df5444ab04e26e157e7a4"
+  },
+  "undefined_checks": 15,
+  "versions": {
+    "numpy": "2.5.4",
+    "python": "3.12.14",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1"
+  }
+}

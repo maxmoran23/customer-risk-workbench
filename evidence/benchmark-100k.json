@@ -1,0 +1,23 @@
+{
+  "as_of": "2026-10-01T00:00:00Z",
+  "assessment_stream_sha256": "55459d6391009f20173d82235cc3953e4eefa3eb2c88b3c9be75c7474e679b3e",
+  "bands": {
+    "HIGH": 13569,
+    "LOW": 21223,
+    "MODERATE": 9629,
+    "REVIEW_REQUIRED": 55579
+  },
+  "customers": 100000,
+  "customers_per_second": 1937.6770057052292,
+  "elapsed_seconds": 51.60818841611035,
+  "limits": "Single process, local hardware, synthetic input. No distributed throughput, concurrency, SLA or production capacity claim.",
+  "machine": "arm64",
+  "memory_limit": "Process high-water mark includes interpreter and imported modules; not isolated incremental allocation.",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "policy_hash": "1d21ef2d077b38b28535522b3d7ac2adefe1cd78f0017c5cd02bc799fe8a4961",
+  "process_peak_rss_bytes": 24526848,
+  "python": "3.12.14",
+  "scope": "streamed synthetic generation + temporal features + policy scoring; excludes database, report rendering and supervised learning",
+  "seed": 42,
+  "transactions": 1000000
+}

@@ -1,0 +1,193 @@
+# Statistical methods and research contracts
+
+This document describes implemented behavior and the assumptions required to interpret it. It does not establish a customer-risk model's suitability for any institution. All bundled supervised outcomes are invented stochastic events. A policy risk index, an outcome probability, data completeness, and a screening workflow are distinct quantities throughout the workbench.
+
+## Start with the question, denominator, and decision
+
+| Question | Implemented diagnostic | What it does not establish |
+| --- | --- | --- |
+| Are observed positive outcomes ranked above negatives? | Exact tied ROC AUC and average precision | Reliable probabilities, causal inference, or cost effectiveness |
+| Do probability predictions match outcomes? | Brier loss, log loss, calibration bins, Wilson intervals | Calibration on another population or a future time period |
+| What does a chosen review threshold do? | Confusion counts, precision, recall, specificity, review rate | Appropriate policy thresholds, staffing levels, or legal duties |
+| Has a feature distribution changed? | Fixed-bin PSI, empirical KS distance, Wasserstein distance, rank effect, missingness | Materiality, a cause of change, or an automatic model failure |
+| What is a defensible sampling design? | Stratified SRS, inclusion probabilities, design weights, finite-population planning | Elimination of nonresponse, label error, selection bias, or clustering |
+| How uncertain is a model comparison on this evaluation sample? | Paired IID/cluster percentile bootstrap | Training-process uncertainty, future performance, or model selection validity |
+| Can the model artifact be inspected and replayed? | Numeric logistic JSON with feature order, preprocessing and dependency versions | Approval to use the artifact for customer decisions |
+
+Do not convert a policy index to an outcome probability by dividing by 100. The supervised APIs require probability predictions; ranking APIs separately accept arbitrary finite scores. Do not treat absence of an observed event as a negative label until the chosen outcome horizon and reporting delay have elapsed.
+
+## Public API and return shapes
+
+All functions return Python dictionaries, lists, numbers, strings, booleans, or `None`. Reports are compatible with strict JSON serialization (`allow_nan=False`). Inputs with mismatched lengths, non-finite numbers, malformed labels, or violated contracts fail explicitly. Binary labels are Python integer `0` or `1`; booleans and strings are rejected. `None` is the declared missing-value representation. IEEE `NaN` is accepted only inside the optional model's private NumPy matrix, after input validation.
+
+A scalar metric uses `{"value": number_or_null, "reason": string_or_null}`. This schema distinguishes a calculated zero from a quantity that cannot be estimated. Wilson intervals instead provide `lower`, `upper`, `n`, `successes`, `confidence`, `method`, and `reason`.
+
+### `crw.validation`
+
+| Function | Main input | Main output |
+| --- | --- | --- |
+| `roc_auc(y_true, scores)` | Paired labels and finite scores | Metric envelope; both classes required |
+| `average_precision(y_true, scores)` | Paired labels and finite scores | Metric envelope; a positive outcome required |
+| `binary_metrics(y_true, probabilities, threshold=0.5)` | Probabilities in [0,1] | Denominators, confusion counts, ranking/probability metrics, threshold rates, recall/precision intervals |
+| `calibration_bins(y_true, probabilities, n_bins=10)` | Probabilities and fixed bin count | Bin counts, predicted/observed rates, Wilson intervals, ECE |
+| `wilson_interval(successes, n, confidence=0.95)` | Independent Bernoulli counts | Two-sided score interval; null interval for zero observations |
+| `proportion_sample_size(margin, confidence=0.95, population_size=None, assumed_proportion=0.5)` | Absolute margin and optional finite population | Rounded-up planned sample size and explicit assumptions |
+| `zero_failure_upper_bound(n, confidence=0.95)` | Positive trial count, zero failures observed | Exact one-sided binomial upper bound |
+| `zero_failure_sample_size(maximum_rate, confidence=0.95)` | Target upper rate | Minimum planned trials conditional on observing zero failures |
+| `stratified_sample(records, stratum_key, allocation, seed=7, id_key="customer_id")` | Unique sampling units and per-stratum allocation | Sample records, inclusion probabilities, inverse-probability weights, design manifest |
+| `stratified_proportion(sample, population_sizes, outcome_key="label", stratum_key="segment")` | Sampled rows and known stratum population sizes | Weighted rate and design-based standard error |
+| `fit_reference_bins(reference, n_bins=10)` | Reference numeric/nullable observations | Persistable quantile cutpoints and fit metadata |
+| `population_stability_index(reference, current, reference_bins=None, n_bins=10, pseudocount=0.5)` | Paired populations and optionally persisted reference bins | PSI, bin counts, smoothed shares, bin contributions |
+| `distribution_drift(reference, current)` | Two numeric/nullable populations | Missingness, PSI, KS distance, Wasserstein distance, mean/median differences, standardized and rank effects |
+| `migration_matrix(before, after, band_order=None)` | Paired band labels for the same entities | Count/proportion matrix, changed count, optional ordered upward/downward counts |
+| `segment_metrics(y_true, probabilities, segments, threshold=0.5, min_n=50, min_events=5)` | Labels, probabilities, segment names | Support counts and gated metric reports |
+| `paired_bootstrap_delta(y_true, first, second, metric="roc_auc", repetitions=1000, seed=7, confidence=0.95, groups=None)` | Two predictions for identical labeled observations | Second-minus-first delta, percentile interval, valid/skipped replicate counts |
+| `sensitivity_analysis(predict, baseline, perturbations)` | Single-record callable, feature map, test values | Scenario outputs, deltas, nondecreasing violations |
+| `permutation_importance(predict, rows, y_true, features=None, metric="brier", repetitions=10, seed=7)` | Batch callable and evaluation features/outcomes | Baseline metric, per-feature repeated degradation |
+
+### `crw.learning`
+
+| Function | Main input | Main output |
+| --- | --- | --- |
+| `generate_research_rows(n=3000, seed=7, label_noise=0, prevalence_shift=0, repeat_snapshots=1)` | Synthetic customer count and scenario controls | Research rows; `n` counts customers, row count is `n * repeat_snapshots` |
+| `temporal_entity_split(rows, train_end, calibration_end, holdout_end, maturity_days=30, embargo_days=0)` | Research rows and UTC-aware cutoffs | `train`, `calibration`, `holdout`, exclusion manifest |
+| `choose_threshold(y_true, probabilities, max_review_rate=0.2, false_negative_cost=4, false_positive_cost=1)` | Calibration-only predictions/outcomes | Cost-minimizing capacity-feasible threshold and selection details |
+| `fit_challengers(partitions, feature_order=FEATURE_ORDER, seed=7, max_review_rate=0.2, include_tree=True, monotonic_constraints=None, bootstrap_repetitions=200, include_frozen_stress=True)` | Validated partitions and predeclared model configuration | Baseline/challenger diagnostics, portable logistic JSON, split manifest, fixed-model stress |
+| `predict_logistic_json(model, feature_rows)` | Validated numeric artifact and exact feature names | Probability list without a pickle loader |
+| `evaluate_frozen_stress(predict, rows, training_metadata, threshold_selection, scenarios, seed=7)` | Already-fitted batch predictor, unique-customer holdout, fixed threshold and explicit interventions | Paired predictions/outcomes, base/stress metrics, workload changes, before/after integrity hashes |
+| `run_research_experiment(n=3000, seeds=(7,19,41), include_stress=True, include_tree=True, bootstrap_repetitions=200)` | Reproducible experiment design | Per-seed experiments, regime/model summary, limitations |
+
+Research rows contain exactly the information needed for this experiment interface:
+
+```json
+{
+  "customer_id": "RESEARCH-0000001",
+  "as_of": "2024-03-01T00:00:00Z",
+  "feature_available_at": "2024-02-29T23:00:00Z",
+  "outcome_observed_at": "2024-03-31T00:00:00Z",
+  "outcome_available_at": "2024-04-04T00:00:00Z",
+  "segment": "retail",
+  "label": 1,
+  "features": {"declared_feature": 0.4}
+}
+```
+
+This is a research-row contract, separate from the transaction-engine contract. An adapter must construct point-in-time features before calling it. `feature_available_at` attests to the entire vector; the splitter cannot independently verify source-system lineage or detect disguised outcome leakage inside an otherwise valid feature.
+
+## Ranking and probability metrics
+
+ROC AUC is calculated as the fraction of positive-negative pairs for which the positive score is larger, adding half credit for tied scores. The implementation groups identical scores and accumulates lower-ranked negatives, giving an exact empirical statistic in O(n log n) time. A one-class evaluation population returns null. Average precision groups tied predictions before calculating the positive-recall increment times precision at each score threshold. AUC and AP are different estimands: AP is sensitive to outcome prevalence and should be compared with the evaluation population's positive fraction. [scikit-learn metric definitions](https://scikit-learn.org/stable/modules/model_evaluation.html)
+
+Brier loss is the mean squared probability error. Log loss is the mean negative log probability assigned to the observed outcome. Predictions exactly at zero or one are permitted. If a prediction assigns certainty to the wrong outcome, mathematical log loss is infinite; JSON receives a null value with an explicit `infinite` reason rather than silent clipping. Precision, recall, specificity, negative predictive value, and F1 preserve their actual denominators and return null where the denominator is zero.
+
+Calibration bins are equal-width intervals. A probability exactly on an interior edge belongs to the higher bin; 1 belongs to the final bin. Empty bins remain present with null rates. ECE is the bin-count-weighted absolute difference between mean probability and observed outcome frequency. It depends on binning and sampling noise. Brier/log loss contain discrimination and outcome-uncertainty components, so improvement alone does not prove calibration improved. [scikit-learn calibration guide](https://scikit-learn.org/stable/modules/calibration.html)
+
+No analytical AUC confidence interval, DeLong comparison, calibration slope/intercept test, or hypothesis-test p-value is implemented. The paired resampling interface supports AUC comparisons with the restrictions below.
+
+## Confidence intervals and sample planning
+
+For `k` observed events in `n` independent Bernoulli trials, the two-sided Wilson interval uses `p = k/n`, `z = NormalQuantile((1+confidence)/2)`, center `(p + z²/(2n))/(1+z²/n)`, and radius `z * sqrt(p(1-p)/n + z²/(4n²))/(1+z²/n)`. The interval stays inside [0,1] and avoids a zero-width interval merely because no event was observed. It is not a cluster-robust or survey-weighted interval. [NIST confidence-interval guidance](https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2119.pdf)
+
+The proportion planner uses `n0 = z² p(1-p) / margin²`, then `n = N*n0/(N-1+n0)` for a known finite population and rounds up once, after correction. The default `p=0.5` maximizes binomial variance. This is approximate planning for a simple random sample, not an assurance that a rare outcome will occur often enough for model estimation. [Penn State sampling-theory derivation](https://online.stat.psu.edu/stat506/Lesson02)
+
+With zero failures in `n` independent trials, the one-sided exact upper bound is `1 - (1-confidence)^(1/n)`. Planning for an upper rate `r` requires `ceil(log(1-confidence)/log(1-r))` trials **and zero observed failures**. For example, 299 independent zero-failure trials imply a 95% one-sided upper bound no larger than 1%. They do not prove the failure rate is zero. This interval follows by inverting the zero-event binomial probability; it differs from a two-sided Wilson bound. [NIST exact binomial method](https://itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbici.htm)
+
+Threshold examples, population accuracy, and rare-event sensitivity need different denominators. Ten thousand largely negative records can still leave recall based on only a handful of positives. Report outcome counts by time period and segment, and plan positive/negative event support separately from a population proportion margin. This implementation does not automate a multivariable-model sample-size or statistical-power determination.
+
+## Stratified sampling and estimation
+
+`stratified_sample` implements simple random sampling without replacement independently within each declared stratum. Population units are sorted by stable ID before seeded sampling, making input-order changes irrelevant. Every stratum must have a positive allocation; allocations cannot exceed known stratum sizes. Each sampled unit receives inclusion probability `n_h/N_h` and weight `N_h/n_h`.
+
+`stratified_proportion` uses the known stratum population shares `W_h=N_h/N` to estimate `sum(W_h * p_h)`. Its estimated variance is `sum(W_h² * (1-n_h/N_h) * s_h²/n_h)`, with a zero sampling-variance contribution for census strata. A non-census stratum with only one observation cannot estimate its within-stratum variance, so standard error is null. This design does not correct biased outcomes, missing strata, nonresponse, or a faulty sampling frame. Do not pass raw inverse-probability weights to the unweighted classification metric functions and imply that they used a survey design. [GAO statistical sampling reference](https://www.gao.gov/assets/pemd-10.1.6.pdf)
+
+## Distribution monitoring
+
+Persist `fit_reference_bins` output with the monitoring baseline. Current observations are assigned to those cutpoints; current-data quantiles are never used to redefine the comparison. Nonconstant references have separate below-minimum and above-maximum bins. The maximum reference value remains in the last interior bin. A constant reference becomes below/equal/above bins. An all-missing reference uses numeric/missing bins, allowing newly observed numeric values to appear as change.
+
+PSI uses `sum((q_i-p_i)*log(q_i/p_i))`, with the disclosed positive pseudocount added to **counts**, followed by normalization within each population. The default pseudocount is 0.5. This prevents infinite terms in empty bins but makes results sensitive to sample size and smoothing; equal underlying proportions with different finite sample sizes need not yield exactly zero after smoothing. This implementation deliberately supplies no universal 0.1/0.25 alarm rules and makes no significance claim from PSI.
+
+The KS statistic is the maximum absolute distance between empirical CDFs, accounting for tied observations. No continuous-distribution p-value is attached to discrete or tied data. Wasserstein distance integrates the absolute CDF difference in the original feature's units. Mean/median differences are current minus reference. The standardized mean difference uses pooled sample variance and is null when a nonzero difference has zero pooled variation. The rank-biserial effect is `2*P(current > reference, half credit for ties)-1`. Numeric diagnostics exclude missing observations while missing rates are reported separately. [SciPy Wasserstein definition](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wasserstein_distance.html), [SciPy KS reference](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html)
+
+## Paired uncertainty, segments, and sensitivity
+
+The bootstrap resamples identical indices for both models, preserving pairing. With `groups`, it samples entire customer clusters with replacement and retains all rows in each selected cluster. Without `groups`, rows are assumed independent. The output reports the point difference **second minus first**, the percentile interval, the count of valid replicates, the seed, and the number of sampling units. An interval is withheld if fewer than 90% of requested replicates produce defined statistics, or there are fewer than two sampling units. This 90% rule is an implementation guard, not a universal statistical standard.
+
+The percentile interval is conditional on the fitted models and the empirical evaluation distribution. It does not include model refitting, feature-selection uncertainty, threshold-search uncertainty, temporal dependence between clusters, label error, or data-source drift. It is not a bias-corrected accelerated interval. The routine uses ordinary unstratified resampling; a rare-outcome AUC comparison can therefore lose replicates and must not silently hide that loss.
+
+Segment reports require both a total-count threshold and a minimum count in each class. Default gates are illustrative (`n>=50`, at least five positives and five negatives). Below-gate reports retain denominators and suppress the detailed metrics. Above-gate reports are descriptive only; these gates do not establish fairness or statistical power. If a reviewer searches many segments, any later inferential testing must address multiple comparisons and the selection process.
+
+One-feature-at-a-time sensitivity evaluates declared perturbations against a fixed record and checks nondecreasing behavior. The supplied callable determines how missing values behave. Marginal permutation importance measures metric degradation when one evaluation feature is shuffled. Both tools can create implausible combinations of correlated features; neither identifies a causal effect or allocates unique economic importance.
+
+## Outcome research and leakage controls
+
+The generator samples unobserved customer states, noisy measured features, and Bernoulli outcomes from an invented latent-event process. Label-noise experiments flip labels independently. Prevalence stress adds an intercept shift to latent event log odds. No policy-score function is called, no thresholded policy score becomes a label, and the latent event probability is not included among model inputs.
+
+The default experiment uses these explicit cutoffs:
+
+| Partition | Assessment dates | Additional eligibility |
+| --- | --- | --- |
+| Train | Earlier than Jul 01, 2024 | 30-day outcome horizon and outcome availability by Jul 01, 2024 |
+| Calibration | Jul 01 through Sep 30, 2024 | Outcome available by Oct 01, 2024 |
+| Holdout | Oct 01, 2024 through Feb 14, 2025 | Outcome available by Feb 15, 2025 |
+
+The generator produces assessments over approximately one synthetic year. The demonstration adds a seven-day boundary embargo. Any customer represented in more than one time partition is removed from **all** partitions before fitting, including customers whose later outcome has not yet matured. Future feature availability raises an error. Duplicate customer/time records raise an error. Invalid outcome chronology raises an error. Censored/immature records are excluded and counted by reason. The split manifest reconciles retained and excluded rows.
+
+`temporal_entity_split` supports repeated snapshots for inspecting exclusion behavior. `fit_challengers` requires one assessment per customer, preventing frequent-observation customers from silently dominating the research fit or its headline metrics. An adapter must choose an anchor assessment before fitting. The bootstrap API separately supports clustered repeated-row evaluation. These are deliberately different contracts.
+
+## Challenger models and inspection
+
+The training-prevalence baseline provides a constant probability. The logistic challenger uses training-fitted median imputation, explicit missing indicators, training-fitted standardization, and L2-regularized logistic regression with a predeclared configuration. The histogram gradient-boosting challenger uses native numeric missing-value handling, fixed tree settings, optional monotonic constraints, and no automatic internal random validation split. Hyperparameters are not selected on the holdout. [scikit-learn leakage guidance](https://scikit-learn.org/stable/common_pitfalls), [histogram gradient-boosting classifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html)
+
+For each nonzero tree monotonic constraint, a finite diagnostic probe evaluates 11 numeric values over the training range at up to 25 holdout anchors. It records tested pairs and direction violations under a 1e-12 tolerance. These probes are behavior checks on those grids, not an exhaustive proof over all records or over changes from/to missing values. A constrained feature without numeric training support is explicitly identified.
+
+The calibration partition selects a threshold under an illustrative maximum review rate and false-negative/false-positive cost function. Candidates include all unique predicted probabilities and the endpoints. Tied probabilities enter together. Ties between candidate policies are broken by fewer reviews and then a higher threshold. An exact-one prediction can make a zero-capacity policy infeasible within the declared [0,1] threshold contract; that case fails explicitly. Threshold search is a sorted O(n log n) scan. Probability recalibration is **not** performed, and the word calibration here describes the threshold-selection partition.
+
+A threshold satisfying the calibration capacity target can exceed that target in the holdout population. Each model therefore includes a holdout capacity diagnostic with the observed rate, original target, excess rate, and explicit exceedance flag. The target is not enforced by reselecting the threshold on holdout data.
+
+For the numeric logistic artifact, `feature_order`, missing-indicator positions, imputation medians, scaler centers/scales, coefficients, and intercept are serialized to JSON. Metadata records versions, seed, training-data digest, fitted-row count, and chosen threshold. The JSON scorer validates dimensions and exact feature-name agreement. Every experiment compares numeric-JSON predictions with the fitted sklearn pipeline and fails if maximum absolute replay difference exceeds 1e-12. Tree outputs include metadata and a reproducible refit recipe, not an executable serialized tree model.
+
+The multi-seed report retains each run and provides descriptive means/minima/maxima across seeds. These ranges are not confidence intervals. The 12 regime/seed experiments each **refit** on their specified synthetic distribution; they do not measure how an unchanged deployed model would survive an abrupt distribution shift. A separate `frozen_model_stress` section answers the fixed-model question below. The workbench does not choose a winning challenger from holdout results.
+
+## Frozen-model stress and paired evidence
+
+For each base-regime seed, the already-fitted prevalence baseline, logistic pipeline, and optional histogram gradient-boosting model are evaluated again without fitting, preprocessing updates, threshold selection, or hyperparameter changes. The fixed holdout customer order is retained. Default scenarios are:
+
+| Scenario | Intervention | Interpretation |
+| --- | --- | --- |
+| Zero intervention | No feature or outcome changes | Exact prediction/metric invariance control |
+| Missing behavior features | Mask `velocity_change` and `flow_through` | Input availability failure under original labels |
+| Jurisdiction input shift | Add 0.25 to the normalized exposure feature, clipped to [0,1] | Input sensitivity with outcomes held fixed, not a causal customer change |
+| Label noise | Independently flip each evaluation label with probability 0.15 | Outcome-measurement sensitivity; model probabilities and workload must remain unchanged |
+
+Each scenario includes its exact specification, deterministic intervention seed, actual label-flip count/rate, changed feature-cell count, average/maximum probability change, full metric report, second-minus-base metric deltas, and review-count/rate changes. Unsupported deltas remain null with a reason. These are point diagnostics, without an automatic hypothesis-test or multiple-comparison claim.
+
+The report supplies `customer_ids` once and prediction/label arrays in that exact order for the baseline and every intervention. A canonical SHA-256 of the customer sequence links each scenario to the same paired population. Unique customer IDs are required. Feature masking and label corruption use separate seeded random streams. Identical scenario names and seeds produce the same corrupt-label mask across all models in an experiment, permitting a paired comparison.
+
+The evaluator hashes the training metadata, original threshold-selection record, and source holdout rows before and after prediction. Mutation raises an error. The workbench additionally hashes the portable numeric logistic artifact before and after its frozen scenarios. `preprocessing_refit`, `model_refit`, and `threshold_reselected` are all false for these controlled workbench calls. A custom caller must provide a previously fitted predictor; arbitrary code inside a caller-supplied prediction function cannot be certified by a dictionary hash.
+
+Custom scenario dictionaries accept only these fields:
+
+```python
+{
+    "name": "example",
+    "feature_offsets": {"jurisdiction_exposure": 0.25},
+    "clip_bounds": {"jurisdiction_exposure": [0.0, 1.0]},
+    "mask_features": ["velocity_change"],
+    "mask_probability": 0.5,
+    "label_noise": 0.15,
+}
+```
+
+Offsets apply to observed numeric values; absent values stay absent. Bounds are optional but require an offset for the named feature. Masks are applied after offsets, and label corruption is independent of feature masks. A zero-intervention specification is simply `{"name": "zero_intervention"}`. These experiments deliberately distinguish a change in inputs or recorded labels from a claimed causal shift in the outcome-generating process. The frozen stress section does not replace a representative later-period validation sample or a documented data-source failure exercise.
+
+## Reproduce and review
+
+```bash
+uv sync --extra dev --extra research
+uv run pytest tests/test_validation.py tests/test_learning.py -q
+uv run python -c 'import json; from crw.learning import run_research_experiment; print(json.dumps(run_research_experiment(n=3000), indent=2, allow_nan=False))' > research-report.json
+```
+
+The tests use hand-calculated tied-ranking, confusion-matrix, interval, sampling, distribution, and migration examples; an independent quadratic AUC oracle exercised by property-based tests; optional agreement checks against sklearn/SciPy; temporal leakage and outcome-censoring cases; customer-overlap rejection; numeric artifact replay; and a holdout-contamination test that changes holdout labels/features and checks that fitted parameters and the selected threshold remain unchanged. Frozen-stress tests check zero-intervention identity, unchanged model/threshold hashes, shared label-corruption masks across models, prediction/workload invariance when only labels change, original-label retention when only inputs change, and explicit null results for unsupported metrics. These tests establish implementation behavior on their exercised cases, not real-world model effectiveness.
+
+A substantive model review still needs an agreed outcome definition, documented source/label lineage, representative out-of-time data, decision-cost justification, segment-specific support planning, selection-bias analysis, independent challenge, ongoing monitoring thresholds, and institution-controlled adoption governance. The software supplies reusable mechanics and inspectable evidence for those activities; its synthetic reports cannot replace them.

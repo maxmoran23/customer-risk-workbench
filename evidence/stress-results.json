@@ -1,0 +1,916 @@
+{
+  "experiments": [
+    {
+      "complete_paired_n": 0,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            9.192339541447819,
+            39.192339541447815
+          ],
+          "after_gates": [
+            "required_evidence_missing",
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": -0.97485
+        },
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            15.054646181669039,
+            25.05464618166904
+          ],
+          "after_gates": [
+            "required_evidence_missing"
+          ],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": -0.29984000000000144
+        },
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            17.5153569027416,
+            38.76897092050045
+          ],
+          "after_gates": [
+            "required_evidence_missing",
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": -0.635349999999999
+        }
+      ],
+      "feature": "profile.ownership_opacity",
+      "id": "ownership_unknown",
+      "max_delta": -0.0006300000000010186,
+      "mean_complete_score_delta": null,
+      "mean_delta": -2.3087203333333335,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 13,
+          "from": "LOW",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": -8.312190000000001,
+      "n": 60,
+      "operation": "missing",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": false,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": null
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            22.012908,
+            42.012908
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 11.84571845855218
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            27.44097618166904,
+            27.44097618166904
+          ],
+          "after_gates": [],
+          "after_score": 27.44097618166904,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 12.08649
+        },
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            29.857795982241154,
+            41.11141
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 11.707089079499553
+        }
+      ],
+      "feature": "profile.geography_exposure",
+      "id": "geography_increase",
+      "max_delta": 12.325868367103748,
+      "mean_complete_score_delta": 9.48419260318401,
+      "mean_delta": 9.56728526532567,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 1,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 11,
+          "from": "LOW",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "LOW",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": -0.7412100000000095,
+      "n": 60,
+      "operation": "set",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 0.9
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            18.50802954144782,
+            38.50802954144782
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 8.34084
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            23.97629618166904,
+            23.97629618166904
+          ],
+          "after_gates": [],
+          "after_score": 23.97629618166904,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 8.621809999999998
+        },
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            27.0392269027416,
+            38.292840920500446
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 8.88852
+        }
+      ],
+      "feature": "profile.source_of_funds_concern",
+      "id": "funds_concern",
+      "max_delta": 8.962199999999996,
+      "mean_complete_score_delta": 6.333210175438596,
+      "mean_delta": 6.441496166666667,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 1,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 10,
+          "from": "LOW",
+          "to": "MODERATE"
+        },
+        {
+          "count": 2,
+          "from": "LOW",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": 0.17262999999999806,
+      "n": 60,
+      "operation": "set",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 0.9
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            14.061102782820276,
+            30.16718954144782
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 3.8939132413724575
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "after_gates": [],
+          "after_score": 15.35448618166904,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 0.0
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "after_gates": [],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 0.0
+        }
+      ],
+      "feature": "txn.30d.expected_volume_ratio",
+      "id": "volume_double",
+      "max_delta": 5.0,
+      "mean_complete_score_delta": 0.8140431715518986,
+      "mean_delta": 0.838239566997178,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 13,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": 0.0,
+      "n": 60,
+      "operation": "multiply",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 2
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            25.16718954144782,
+            30.16718954144782
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 15.0
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            21.618729,
+            21.618729
+          ],
+          "after_gates": [],
+          "after_score": 21.618729,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 6.264242818330958
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            24.40432092050045,
+            29.40432092050045
+          ],
+          "after_gates": [],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 6.253614017758849
+        }
+      ],
+      "feature": "txn.30d.cash_share",
+      "id": "cash_concentration",
+      "max_delta": 15.0,
+      "mean_complete_score_delta": 0.1423081047023987,
+      "mean_delta": 0.5590562627064074,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 13,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": 0.0,
+      "n": 60,
+      "operation": "set",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 0.9
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            18.037979541447818,
+            38.03797954144782
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 7.8707899999999995
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            23.80389618166904,
+            23.80389618166904
+          ],
+          "after_gates": [],
+          "after_score": 23.80389618166904,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 8.449409999999999
+        },
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            24.9759969027416,
+            36.22961092050045
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 6.825289999999999
+        }
+      ],
+      "feature": "profile.documentation_gap",
+      "id": "documentation_gap",
+      "max_delta": 8.959399999999999,
+      "mean_complete_score_delta": 6.320213684210526,
+      "mean_delta": 6.386319666666666,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 1,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 10,
+          "from": "LOW",
+          "to": "MODERATE"
+        },
+        {
+          "count": 2,
+          "from": "LOW",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": -0.3752199999999988,
+      "n": 60,
+      "operation": "set",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 0.9
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 0.0
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "after_gates": [],
+          "after_score": 15.35448618166904,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 0.0
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "after_gates": [],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 0.0
+        }
+      ],
+      "feature": "profile.screening_unresolved",
+      "id": "screening_unresolved",
+      "max_delta": 0.0,
+      "mean_complete_score_delta": 0.0,
+      "mean_delta": 0.0,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 13,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": 0.0,
+      "n": 60,
+      "operation": "set",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 1
+    },
+    {
+      "complete_paired_n": 57,
+      "delta_basis": "provisional lower bound; a decrease can reflect missing evidence",
+      "examples": [
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            19.037979541447818,
+            39.03797954144782
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "REVIEW_REQUIRED",
+          "before_bounds": [
+            10.167189541447819,
+            30.16718954144782
+          ],
+          "before_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "before_score": null,
+          "customer_id": "syn-c-000000486",
+          "provisional_lower_bound_delta": 8.87079
+        },
+        {
+          "after": "LOW",
+          "after_bounds": [
+            24.80389618166904,
+            24.80389618166904
+          ],
+          "after_gates": [],
+          "after_score": 24.80389618166904,
+          "before": "LOW",
+          "before_bounds": [
+            15.35448618166904,
+            15.35448618166904
+          ],
+          "before_gates": [],
+          "before_score": 15.35448618166904,
+          "customer_id": "syn-c-000000509",
+          "provisional_lower_bound_delta": 9.449409999999999
+        },
+        {
+          "after": "REVIEW_REQUIRED",
+          "after_bounds": [
+            25.9759969027416,
+            37.22961092050045
+          ],
+          "after_gates": [
+            "missing_evidence_crosses_band"
+          ],
+          "after_score": null,
+          "before": "LOW",
+          "before_bounds": [
+            18.1507069027416,
+            29.40432092050045
+          ],
+          "before_gates": [],
+          "before_score": null,
+          "customer_id": "syn-c-000000117",
+          "provisional_lower_bound_delta": 7.825289999999999
+        }
+      ],
+      "feature": "profile_age_days",
+      "id": "profile_stale",
+      "max_delta": 9.959399999999999,
+      "mean_complete_score_delta": 7.320213684210526,
+      "mean_delta": 7.386319666666666,
+      "migrations": [
+        {
+          "count": 11,
+          "from": "HIGH",
+          "to": "HIGH"
+        },
+        {
+          "count": 1,
+          "from": "LOW",
+          "to": "LOW"
+        },
+        {
+          "count": 10,
+          "from": "LOW",
+          "to": "MODERATE"
+        },
+        {
+          "count": 2,
+          "from": "LOW",
+          "to": "REVIEW_REQUIRED"
+        },
+        {
+          "count": 35,
+          "from": "MODERATE",
+          "to": "MODERATE"
+        },
+        {
+          "count": 1,
+          "from": "REVIEW_REQUIRED",
+          "to": "REVIEW_REQUIRED"
+        }
+      ],
+      "min_delta": 0.6247800000000012,
+      "n": 60,
+      "operation": "set",
+      "score_availability": [
+        {
+          "after_complete": false,
+          "before_complete": false,
+          "n": 3
+        },
+        {
+          "after_complete": true,
+          "before_complete": true,
+          "n": 57
+        }
+      ],
+      "value": 900
+    }
+  ],
+  "limitation": "Perturbations hold other computed features fixed and may not be jointly realizable. They measure software sensitivity, not causal effect or real-world risk change.",
+  "method": "one-factor-at-a-time deterministic perturbation"
+}

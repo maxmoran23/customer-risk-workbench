@@ -1,0 +1,367 @@
+{
+  "bands": [
+    {
+      "minimum": 0,
+      "name": "LOW"
+    },
+    {
+      "minimum": 30,
+      "name": "MODERATE"
+    },
+    {
+      "minimum": 60,
+      "name": "HIGH"
+    }
+  ],
+  "description": "Illustrative policy for synthetic research. Weights, thresholds and bands are not empirically calibrated or regulator-prescribed.",
+  "factors": [
+    {
+      "direction": "increasing",
+      "feature": "profile.ownership_opacity",
+      "group": "customer",
+      "high": 1,
+      "id": "ownership_opacity",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 10
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.business_complexity",
+      "group": "customer",
+      "high": 1,
+      "id": "business_complexity",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 5
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.source_of_funds_concern",
+      "group": "customer",
+      "high": 1,
+      "id": "source_of_funds_concern",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 10
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.geography_exposure",
+      "group": "geography",
+      "high": 1,
+      "id": "geography_profile",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.30d.high_risk_share",
+      "group": "geography",
+      "high": 1,
+      "id": "geography_activity",
+      "low": 0,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.product_complexity",
+      "group": "product_channel",
+      "high": 1,
+      "id": "product",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 8
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.channel_opacity",
+      "group": "product_channel",
+      "high": 1,
+      "id": "channel",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 7
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.7d.cash_share",
+      "group": "behavior",
+      "high": 0.8,
+      "id": "cash_7d",
+      "low": 0.2,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.7d.flow_through",
+      "group": "behavior",
+      "high": 1,
+      "id": "flow_7d",
+      "low": 0.7,
+      "min_support": 4,
+      "rationale": "Aggregate balance proxy only; lawful treasury/payroll activity can produce the same value.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 12
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.30d.cash_share",
+      "group": "behavior",
+      "high": 0.8,
+      "id": "cash_30d",
+      "low": 0.2,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.30d.flow_through",
+      "group": "behavior",
+      "high": 1,
+      "id": "flow_30d",
+      "low": 0.7,
+      "min_support": 4,
+      "rationale": "Aggregate balance proxy only; lawful treasury/payroll activity can produce the same value.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 12
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.90d.cash_share",
+      "group": "behavior",
+      "high": 0.8,
+      "id": "cash_90d",
+      "low": 0.2,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.90d.flow_through",
+      "group": "behavior",
+      "high": 1,
+      "id": "flow_90d",
+      "low": 0.7,
+      "min_support": 4,
+      "rationale": "Aggregate balance proxy only; lawful treasury/payroll activity can produce the same value.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 12
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.last4.cash_share",
+      "group": "behavior",
+      "high": 0.8,
+      "id": "cash_last4",
+      "low": 0.2,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.last4.flow_through",
+      "group": "behavior",
+      "high": 1,
+      "id": "flow_last4",
+      "low": 0.7,
+      "min_support": 4,
+      "rationale": "Aggregate balance proxy only; lawful treasury/payroll activity can produce the same value.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 12
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.last10.cash_share",
+      "group": "behavior",
+      "high": 0.8,
+      "id": "cash_last10",
+      "low": 0.2,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 15
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.last10.flow_through",
+      "group": "behavior",
+      "high": 1,
+      "id": "flow_last10",
+      "low": 0.7,
+      "min_support": 4,
+      "rationale": "Aggregate balance proxy only; lawful treasury/payroll activity can produce the same value.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 12
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.30d.expected_volume_ratio",
+      "group": "behavior",
+      "high": 5,
+      "id": "expected_volume",
+      "low": 1.5,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 25
+    },
+    {
+      "direction": "increasing",
+      "feature": "txn.30d.growth_ratio",
+      "group": "behavior",
+      "high": 8,
+      "id": "growth",
+      "low": 2,
+      "min_support": 4,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": true,
+      "required": false,
+      "weight": 20
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.adverse_information",
+      "group": "context",
+      "high": 1,
+      "id": "adverse_information",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 8
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.pep_exposure",
+      "group": "context",
+      "high": 1,
+      "id": "pep_context",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Contextual exposure only; PEP status alone does not impose a high band or adverse action.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 2
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile.documentation_gap",
+      "group": "evidence",
+      "high": 1,
+      "id": "documentation",
+      "low": 0,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": true,
+      "weight": 10
+    },
+    {
+      "direction": "increasing",
+      "feature": "profile_age_days",
+      "group": "evidence",
+      "high": 730,
+      "id": "profile_age",
+      "low": 180,
+      "min_support": 0,
+      "rationale": "Illustrative hypothesis; requires approved local calibration.",
+      "require_full_window": false,
+      "required": false,
+      "weight": 10
+    }
+  ],
+  "groups": [
+    {
+      "aggregation": "sum",
+      "cap": 25,
+      "id": "customer",
+      "rationale": "Contextual ownership, business and source-of-funds evidence; cap limits accumulation."
+    },
+    {
+      "aggregation": "max",
+      "cap": 15,
+      "id": "geography",
+      "rationale": "Profile and observed exposure overlap; strongest normalized signal only."
+    },
+    {
+      "aggregation": "sum",
+      "cap": 15,
+      "id": "product_channel",
+      "rationale": "Separate product and delivery-channel exposures."
+    },
+    {
+      "aggregation": "max",
+      "cap": 25,
+      "id": "behavior",
+      "rationale": "Overlapping windows describe related activity; no multiple votes for the same period."
+    },
+    {
+      "aggregation": "sum",
+      "cap": 10,
+      "id": "context",
+      "rationale": "Corroborated contextual evidence, not automatic categorical classification."
+    },
+    {
+      "aggregation": "max",
+      "cap": 10,
+      "id": "evidence",
+      "rationale": "Documentation and stale-profile uncertainty; completeness also has a separate gate."
+    }
+  ],
+  "policy_id": "generic-reference",
+  "require_complete_history": true,
+  "routes": [
+    {
+      "action": "Refer unresolved screening evidence to the separate screening workflow. No clearance or legal disposition is produced.",
+      "feature": "profile.screening_unresolved",
+      "id": "screening_review",
+      "minimum": 0.5
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,22 @@
+{
+  "chunk_replay_identical": true,
+  "customers": 12,
+  "execution": "temporary working directory outside source checkout; PYTHONPATH removed",
+  "installation": "fresh virtual environment, no-index wheel install, no optional dependencies",
+  "installed_distributions": [
+    "customer-risk-workbench",
+    "pip"
+  ],
+  "limit": "Core package smoke check; browser behavior and optional research dependencies are checked separately.",
+  "python": "3.12.14",
+  "scenario_results": {
+    "failed": 0,
+    "passed": 96,
+    "total": 96
+  },
+  "standalone_html_written": true,
+  "status": "passed",
+  "transactions": 960,
+  "wheel": "customer_risk_workbench-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "2c7a9994cd9283bff057a284acad20e29d239fd913fc71e64aad4da27af4b911"
+}

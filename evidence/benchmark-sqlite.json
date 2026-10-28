@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-10-01T00:00:00Z",
+  "bands": {
+    "HIGH": 1752,
+    "LOW": 1741,
+    "MODERATE": 6160,
+    "REVIEW_REQUIRED": 347
+  },
+  "chunk_size": 333,
+  "customers": 10000,
+  "database_bytes": 745103360,
+  "database_counts": {
+    "assessments": 10000,
+    "customers": 10000,
+    "entities": 10000,
+    "runs": 1,
+    "transactions": 1000000
+  },
+  "ingest_seconds": 39.0939134999644,
+  "ingestion": {
+    "customers_inserted": 10000,
+    "customers_unchanged": 0,
+    "transactions_inserted": 1000000,
+    "transactions_unchanged": 0
+  },
+  "iteration_seconds": 0.5405562499072403,
+  "limit": "One local process and one SQLite writer. No multiwriter, distributed, recovery-time or production-SLA claim. Temporary synthetic database removed after measurement.",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "policy_hash": "1d21ef2d077b38b28535522b3d7ac2adefe1cd78f0017c5cd02bc799fe8a4961",
+  "python": "3.12.14",
+  "result_digest": "3e26965d4f1ecb67080c5d3506238b144a6e65467ddd8994bc418275b539344e",
+  "scope": "synthetic generation and real SQLite ingest, indexed feature extraction, atomic batch scoring, complete-run iteration",
+  "scoring_seconds": 23.579127124976367,
+  "seed": 42,
+  "status": "complete",
+  "total_seconds": 63.21359687484801,
+  "transactions": 1000000
+}

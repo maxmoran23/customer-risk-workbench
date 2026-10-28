@@ -1,0 +1,51 @@
+{
+  "limits": [
+    "Illustrative policy has not been calibrated on an operational population.",
+    "Synthetic scenario coverage does not estimate detection effectiveness.",
+    "No real customer data, employer processes or private regulatory interpretations are included.",
+    "Independent institutional validation and approved-environment integration remain necessary."
+  ],
+  "meta": {
+    "as_of": "2026-10-01T00:00:00Z",
+    "customers": 1000,
+    "data_status": "SYNTHETIC REFERENCE DEMONSTRATION",
+    "generated_at": "2026-10-28T19:35:46.843507+00:00",
+    "policy_hash": "1d21ef2d077b38b28535522b3d7ac2adefe1cd78f0017c5cd02bc799fe8a4961",
+    "result_digest": "7f245ac030d78de323f70493d6b28661921535ceb19bbc5bf05bb16b3ae75872",
+    "seed": 42,
+    "transactions": 80000,
+    "unit": "SYNTHETIC_UNIT",
+    "version": "0.1.0"
+  },
+  "operational": {
+    "chunk_replay_identical": true,
+    "counts": {
+      "assessments": 1000,
+      "customers": 1000,
+      "entities": 1000,
+      "runs": 2,
+      "transactions": 80000
+    },
+    "end_to_end_seconds": 6.01765033393167,
+    "ingest": {
+      "customers_inserted": 1000,
+      "customers_unchanged": 0,
+      "transactions_inserted": 80000,
+      "transactions_unchanged": 0
+    },
+    "measurement_scope": "generate, write fixtures, SQLite ingest, two score/export passes, scenario and selected-example assembly; excludes research and HTML rendering"
+  },
+  "summary": {
+    "bands": {
+      "HIGH": 175,
+      "LOW": 164,
+      "MODERATE": 601,
+      "REVIEW_REQUIRED": 60
+    },
+    "incomplete_scores": 92,
+    "mean_coverage": 0.9958695652173912,
+    "mean_index": 38.34409252084698,
+    "screening_reviews": 45,
+    "selected_customer_examples": 60
+  }
+}

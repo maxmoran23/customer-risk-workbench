@@ -1,0 +1,788 @@
+{
+  "case_count": 96,
+  "cases": [
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "ownership",
+      "id": "CTX-ownership_opacity",
+      "rationale": "The score responds to supplied ownership evidence, not a corporate legal form.",
+      "title": "Opaque ownership versus evidenced ownership"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "business_context",
+      "id": "CTX-business_complexity",
+      "rationale": "Legal operational complexity requires proportional context; company structure alone proves no misconduct.",
+      "title": "Complex activity with versus without contextual concern"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "funding_context",
+      "id": "CTX-source_of_funds_concern",
+      "rationale": "A normalized concern requires a separate evidence adapter; wealth or volume alone is not its substitute.",
+      "title": "Unexplained source of funds versus supported origin"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "geography_context",
+      "id": "CTX-geography_exposure",
+      "rationale": "Invented normalized exposure exercises the mapping without publishing a country blacklist.",
+      "title": "Elevated supplied exposure versus low supplied exposure"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "product_context",
+      "id": "CTX-product_complexity",
+      "rationale": "Product evidence is represented independently of transactional amount.",
+      "title": "Opaque product use versus transparent product use"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "channel_context",
+      "id": "CTX-channel_opacity",
+      "rationale": "Cash and digital channels are not inherently synonymous with opacity.",
+      "title": "Opaque delivery channel versus traceable channel"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "adverse_information",
+      "id": "CTX-adverse_information",
+      "rationale": "Fixture values represent assessed evidence; the engine performs no news verification.",
+      "title": "Corroborated adverse information versus absent concern"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "pep_context",
+      "id": "CTX-pep_exposure",
+      "rationale": "PEP context has a limited weight and creates no automatic high band.",
+      "title": "PEP contextual exposure versus low contextual exposure"
+    },
+    {
+      "category": "paired_context",
+      "expected": "Increasing this evidence does not reduce the index; all other evidence is held fixed.",
+      "family": "documentation",
+      "id": "CTX-documentation_gap",
+      "rationale": "A known evidence gap and an unknown profile field are different states.",
+      "title": "Material documentation gap versus complete documentation"
+    },
+    {
+      "category": "counterexample",
+      "expected": "Under the reference policy, PEP evidence alone remains below HIGH.",
+      "family": "pep_context",
+      "id": "CTX-pep-no-auto-high",
+      "rationale": "A public role by itself does not establish suspicious activity.",
+      "title": "PEP exposure alone does not require high risk"
+    },
+    {
+      "category": "counterexample",
+      "expected": "Changing only the descriptive segment preserves the numerical index.",
+      "family": "segment_context",
+      "id": "BEN-nonprofit",
+      "rationale": "Charitable status is not a financial-crime predicate.",
+      "title": "Lawful charity is not penalized by its segment label"
+    },
+    {
+      "category": "counterexample",
+      "expected": "Changing only the descriptive segment preserves the numerical index.",
+      "family": "segment_context",
+      "id": "BEN-cash_business",
+      "rationale": "Observed cash exposure can be reviewed without treating all cash businesses as illicit.",
+      "title": "Cash-business label is not itself a risk trigger"
+    },
+    {
+      "category": "counterexample",
+      "expected": "Changing only the descriptive segment preserves the numerical index.",
+      "family": "segment_context",
+      "id": "BEN-complex_corporate",
+      "rationale": "Opaque evidence must not be inferred from a business label.",
+      "title": "Legal complexity label does not replace ownership evidence"
+    },
+    {
+      "category": "counterexample",
+      "expected": "Changing only the descriptive segment preserves the numerical index.",
+      "family": "segment_context",
+      "id": "BEN-digital_business",
+      "rationale": "The engine does not equate digital services with misconduct.",
+      "title": "Digital-business label is not automatically suspicious"
+    },
+    {
+      "category": "counterexample",
+      "expected": "A legitimate treasury fixture produces flow_through=1, exposing the proxy's limited specificity.",
+      "family": "aggregate_balance",
+      "id": "BEN-treasury-balance",
+      "rationale": "Aggregate inflow/outflow balance cannot establish tracing, layering, or a round trip.",
+      "title": "Lawful treasury can have balanced aggregate flows"
+    },
+    {
+      "category": "counterexample",
+      "expected": "A lawful cash-shop fixture has cash_share=1; no structuring label is emitted.",
+      "family": "cash_exposure",
+      "id": "BEN-cash-share-not-structuring",
+      "rationale": "The ledger has no reporting threshold, intent, branch geography, or cash-deposit aggregation contract.",
+      "title": "High cash share is not a structuring determination"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d count equals 2 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-count",
+      "rationale": "Count observations independently of amount.",
+      "title": "Event count"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d total equals 100 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-total",
+      "rationale": "Amounts already share one declared base unit.",
+      "title": "Amount sum"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d in_total equals 25 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-in-total",
+      "rationale": "Outgoing activity must not inflate incoming total.",
+      "title": "Incoming amount is direction-specific"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d out_total equals 75 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-out-total",
+      "rationale": "Incoming activity must not inflate outgoing total.",
+      "title": "Outgoing amount is direction-specific"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d cash_share equals 0.2 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-cash-weighted",
+      "rationale": "One cash event among two does not imply a fifty-percent cash amount share.",
+      "title": "Cash share uses amounts, not event counts"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d digital_share equals 0.75 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-digital-weighted",
+      "rationale": "Channel proportions use the declared amount denominator.",
+      "title": "Digital share uses amounts, not event counts"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d counterparty_count equals 2 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-unique-counterparties",
+      "rationale": "Repeated events are not new counterparties.",
+      "title": "Counterparty count deduplicates opaque identities"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d high_risk_share equals 0.25 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-jurisdiction-weighted",
+      "rationale": "This is neither a country count nor a list-screening outcome.",
+      "title": "Exposure is an amount-weighted supplied value"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d flow_through equals 1 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-flow-balanced",
+      "rationale": "The balance proxy reaches one when inflow and outflow totals match.",
+      "title": "Balanced aggregate flows"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d flow_through equals 0.25 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-flow-partial",
+      "rationale": "The ratio divides the smaller direction total by the larger.",
+      "title": "Partly balanced aggregate flows"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d flow_through equals 0 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-flow-one-sided",
+      "rationale": "Positive one-direction activity produces zero balance, not a missing denominator.",
+      "title": "One-sided incoming activity"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d concentration equals 0.6666666666666666 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-concentration-count",
+      "rationale": "A high-value separate counterparty does not alter this explicitly count-based feature.",
+      "title": "Concentration measures event-count share"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d mean_amount equals 50 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-mean",
+      "rationale": "Zero-amount records remain in the count if present.",
+      "title": "Mean amount has the observed count denominator"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d max_amount equals 90 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-maximum",
+      "rationale": "This statistic does not infer a transaction reporting threshold.",
+      "title": "Maximum amount preserves the largest event"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d jurisdiction_coverage equals 0.5 for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-jurisdiction-coverage",
+      "rationale": "Coverage counts mapped events and remains separate from risk exposure.",
+      "title": "Jurisdiction evidence coverage is explicit"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d cash_share equals None for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-zero-volume",
+      "rationale": "A zero denominator is unknown, not a benign ratio.",
+      "title": "Zero total has no cash-share denominator"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d flow_through equals None for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-empty-ratio",
+      "rationale": "Absence of activity does not establish an observed behavioral ratio.",
+      "title": "Empty ledger has unknown behavioral proportions"
+    },
+    {
+      "category": "arithmetic",
+      "expected": "30d high_risk_share equals None for the explicitly specified fixture.",
+      "family": "aggregation",
+      "id": "AGG-unmapped-jurisdiction",
+      "rationale": "Dropping unknown exposure from the denominator would create a misleading ratio.",
+      "title": "One unknown jurisdiction prevents a complete exposure ratio"
+    },
+    {
+      "category": "temporal",
+      "expected": "Only the event one second inside the lower bound and the exact-cutoff event contribute: count=2, total=1100.",
+      "family": "time_windows",
+      "id": "TIME-boundary-1d",
+      "rationale": "Windows are (cutoff-duration, cutoff]; a one-second change can alter membership.",
+      "title": "1d cutoff excludes the exact lower boundary"
+    },
+    {
+      "category": "temporal",
+      "expected": "Only the event one second inside the lower bound and the exact-cutoff event contribute: count=2, total=1100.",
+      "family": "time_windows",
+      "id": "TIME-boundary-7d",
+      "rationale": "Windows are (cutoff-duration, cutoff]; a one-second change can alter membership.",
+      "title": "7d cutoff excludes the exact lower boundary"
+    },
+    {
+      "category": "temporal",
+      "expected": "Only the event one second inside the lower bound and the exact-cutoff event contribute: count=2, total=1100.",
+      "family": "time_windows",
+      "id": "TIME-boundary-30d",
+      "rationale": "Windows are (cutoff-duration, cutoff]; a one-second change can alter membership.",
+      "title": "30d cutoff excludes the exact lower boundary"
+    },
+    {
+      "category": "temporal",
+      "expected": "Only the event one second inside the lower bound and the exact-cutoff event contribute: count=2, total=1100.",
+      "family": "time_windows",
+      "id": "TIME-boundary-90d",
+      "rationale": "Windows are (cutoff-duration, cutoff]; a one-second change can alter membership.",
+      "title": "90d cutoff excludes the exact lower boundary"
+    },
+    {
+      "category": "temporal",
+      "expected": "Only the event one second inside the lower bound and the exact-cutoff event contribute: count=2, total=1100.",
+      "family": "time_windows",
+      "id": "TIME-boundary-180d",
+      "rationale": "Windows are (cutoff-duration, cutoff]; a one-second change can alter membership.",
+      "title": "180d cutoff excludes the exact lower boundary"
+    },
+    {
+      "category": "temporal",
+      "expected": "Only the event one second inside the lower bound and the exact-cutoff event contribute: count=2, total=1100.",
+      "family": "time_windows",
+      "id": "TIME-boundary-365d",
+      "rationale": "Windows are (cutoff-duration, cutoff]; a one-second change can alter membership.",
+      "title": "365d cutoff excludes the exact lower boundary"
+    },
+    {
+      "category": "temporal",
+      "expected": "The oldest of 5 sequential records is excluded, leaving 4 records and the independently computed triangular sum.",
+      "family": "count_windows",
+      "id": "TIME-count-last4",
+      "rationale": "Count windows answer a different question from elapsed-time windows.",
+      "title": "last4 retains precisely the most recent observations"
+    },
+    {
+      "category": "temporal",
+      "expected": "The oldest of 11 sequential records is excluded, leaving 10 records and the independently computed triangular sum.",
+      "family": "count_windows",
+      "id": "TIME-count-last10",
+      "rationale": "Count windows answer a different question from elapsed-time windows.",
+      "title": "last10 retains precisely the most recent observations"
+    },
+    {
+      "category": "temporal",
+      "expected": "The oldest of 26 sequential records is excluded, leaving 25 records and the independently computed triangular sum.",
+      "family": "count_windows",
+      "id": "TIME-count-last25",
+      "rationale": "Count windows answer a different question from elapsed-time windows.",
+      "title": "last25 retains precisely the most recent observations"
+    },
+    {
+      "category": "temporal",
+      "expected": "The oldest of 51 sequential records is excluded, leaving 50 records and the independently computed triangular sum.",
+      "family": "count_windows",
+      "id": "TIME-count-last50",
+      "rationale": "Count windows answer a different question from elapsed-time windows.",
+      "title": "last50 retains precisely the most recent observations"
+    },
+    {
+      "category": "temporal",
+      "expected": "Adding a future event preserves feature values and index; excluded_future increments.",
+      "family": "availability",
+      "id": "TIME-future-event",
+      "rationale": "A later effective transaction is not part of the earlier information set.",
+      "title": "Future event cannot leak into an earlier assessment"
+    },
+    {
+      "category": "temporal",
+      "expected": "Feature values remain unchanged and excluded_unavailable increments.",
+      "family": "availability",
+      "id": "TIME-late-arrival",
+      "rationale": "Effective time alone is insufficient for a replay-safe model.",
+      "title": "An old event received tomorrow is unavailable today"
+    },
+    {
+      "category": "temporal",
+      "expected": "The old event available exactly at cutoff contributes its amount.",
+      "family": "availability",
+      "id": "TIME-available-at-cutoff",
+      "rationale": "Availability uses an inclusive upper boundary.",
+      "title": "An event received exactly at cutoff is available"
+    },
+    {
+      "category": "temporal",
+      "expected": "Among five simultaneous events, last4 excludes the lexicographically smallest ID and sums to 14.",
+      "family": "count_windows",
+      "id": "TIME-tie-break",
+      "rationale": "An input-order tie-break would make repeated ingestion change scores.",
+      "title": "Same-time last-N selection has a stable ID tie-break"
+    },
+    {
+      "category": "temporal",
+      "expected": "A 50-day-old event is excluded when retained history starts 40 days ago.",
+      "family": "retention",
+      "id": "TIME-history-retention",
+      "rationale": "Declared retention is part of the observation contract.",
+      "title": "Events older than retained history do not fill a window"
+    },
+    {
+      "category": "temporal",
+      "expected": "Expected-volume ratio is None with only 20 days of retained history.",
+      "family": "retention",
+      "id": "TIME-partial-30d",
+      "rationale": "Observed activity must not be compared as a complete month after a short observation span.",
+      "title": "Short retained history cannot establish full-month expectation"
+    },
+    {
+      "category": "temporal",
+      "expected": "Current 300 / previous 100 gives growth=3; 60-day boundary event is excluded.",
+      "family": "growth",
+      "id": "TIME-growth-denominator",
+      "rationale": "Comparing an overlapping rolling window would obscure the intended growth denominator.",
+      "title": "Growth uses the preceding disjoint 30-day interval"
+    },
+    {
+      "category": "missing",
+      "expected": "Growth is None when preceding-month total is zero.",
+      "family": "growth",
+      "id": "TIME-growth-zero",
+      "rationale": "An infinite or invented growth value would encode an unsupported assumption.",
+      "title": "Growth with zero prior activity is undefined"
+    },
+    {
+      "category": "missing",
+      "expected": "The engine returns REVIEW_REQUIRED, a null final score, and a bounded interval.",
+      "family": "required_evidence",
+      "id": "QUAL-required-missing",
+      "rationale": "A missing required field cannot be treated as risk-free.",
+      "title": "Missing mandatory ownership evidence requires review"
+    },
+    {
+      "category": "missing",
+      "expected": "An omitted source-of-funds key produces required_evidence_missing.",
+      "family": "required_evidence",
+      "id": "QUAL-required-absent",
+      "rationale": "Omitted and explicitly null mandatory evidence must both be visible.",
+      "title": "Absent mandatory profile key is missing evidence"
+    },
+    {
+      "category": "missing",
+      "expected": "history_complete=False produces REVIEW_REQUIRED.",
+      "family": "retention",
+      "id": "QUAL-history-incomplete",
+      "rationale": "A full-looking count of received rows does not prove that the feed is complete.",
+      "title": "Unconfirmed feed completeness requires review"
+    },
+    {
+      "category": "boundary",
+      "expected": "The 7d cash factor records insufficient_events with three events.",
+      "family": "support",
+      "id": "QUAL-small-support",
+      "rationale": "A numerical ratio may exist while policy support is insufficient.",
+      "title": "Three observations do not meet four-event support"
+    },
+    {
+      "category": "boundary",
+      "expected": "The 7d cash factor is available with four events and complete history.",
+      "family": "support",
+      "id": "QUAL-support-edge",
+      "rationale": "The minimum event-count gate is inclusive.",
+      "title": "Four observations meet four-event support"
+    },
+    {
+      "category": "missing",
+      "expected": "expected_volume_ratio is None.",
+      "family": "expectation",
+      "id": "QUAL-zero-expectation",
+      "rationale": "A zero business expectation requires a separate review hypothesis, not division by zero.",
+      "title": "Zero expected volume does not create a ratio"
+    },
+    {
+      "category": "missing",
+      "expected": "expected_volume_ratio is None.",
+      "family": "expectation",
+      "id": "QUAL-null-expectation",
+      "rationale": "An absent expected baseline cannot be reconstructed from observed activity without circularity.",
+      "title": "Unknown expected volume remains unknown"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-duplicate",
+      "rationale": "Identity collisions could double count activity.",
+      "title": "Duplicate transaction identity is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-foreign-customer",
+      "rationale": "Cross-customer contamination changes both privacy scope and model evidence.",
+      "title": "Another customer's transaction is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-negative-amount",
+      "rationale": "Direction is explicit; signed-amount ambiguity is forbidden.",
+      "title": "Negative normalized amount is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-nan-amount",
+      "rationale": "NaN propagation can silently defeat score comparisons.",
+      "title": "Nonfinite amount is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-bool-amount",
+      "rationale": "Python boolean numeric coercion is not a valid ledger amount.",
+      "title": "Boolean amount is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-naive-time",
+      "rationale": "Local-clock ambiguity prevents reproducible point-in-time windows.",
+      "title": "Timezone-free event time is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-availability-before-event",
+      "rationale": "The fixture contract does not support anticipatory or scheduled ledger records.",
+      "title": "Availability before event is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-before-onboarding",
+      "rationale": "Activity outside the declared relationship cannot be silently attributed.",
+      "title": "Pre-onboarding transaction is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-future-profile",
+      "rationale": "Later profile knowledge must not leak into earlier ratings.",
+      "title": "Future effective profile cannot be replayed today"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-late-profile",
+      "rationale": "Profile availability is checked independently of profile effective time.",
+      "title": "Unavailable profile cannot be replayed today"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-invalid-exposure",
+      "rationale": "Normalized evidence must remain inside its declared 0..1 scale.",
+      "title": "Out-of-range jurisdiction evidence is rejected"
+    },
+    {
+      "category": "invalid_input",
+      "expected": "The invalid fixture raises ContractError before a rating is emitted.",
+      "family": "contract",
+      "id": "REJECT-unknown-channel",
+      "rationale": "Adapter mappings must be explicit rather than silently falling into a default class.",
+      "title": "Undeclared channel values are rejected"
+    },
+    {
+      "category": "invariance",
+      "expected": "Reversing every event yields the identical assessment hash.",
+      "family": "replay",
+      "id": "INV-permutation",
+      "rationale": "A batch file and a reordered database cursor should produce the same assessment.",
+      "title": "Input ordering cannot change a replay"
+    },
+    {
+      "category": "invariance",
+      "expected": "Multiplying every amount and expected volume by 100 preserves index and ratio features.",
+      "family": "normalization",
+      "id": "INV-unit-rescaling",
+      "rationale": "A change of declared unit should not alter ratios when numerator and denominator change together.",
+      "title": "Consistent amount-and-expectation rescaling preserves the index"
+    },
+    {
+      "category": "invariance",
+      "expected": "Appending a fixed suffix to each counterparty preserves feature values.",
+      "family": "identity",
+      "id": "INV-counterparty-renaming",
+      "rationale": "Identity equality matters; identifier spelling does not.",
+      "title": "Bijective opaque-counterparty renaming preserves metrics"
+    },
+    {
+      "category": "invariance",
+      "expected": "Source renaming preserves the index but changes the assessment hash.",
+      "family": "lineage",
+      "id": "INV-source-renaming",
+      "rationale": "An adapter source label can change lineage without altering observed values.",
+      "title": "Source provenance does not silently become risk evidence"
+    },
+    {
+      "category": "invariance",
+      "expected": "Replacing one event with equivalent -04:00 notation preserves all feature values.",
+      "family": "time_windows",
+      "id": "INV-timezone-equivalence",
+      "rationale": "Explicit offset timestamps normalize to the same UTC instant.",
+      "title": "Equivalent timezone notation preserves event membership"
+    },
+    {
+      "category": "invariance",
+      "expected": "Input transaction dictionaries and list order remain unchanged.",
+      "family": "replay",
+      "id": "INV-no-event-mutation",
+      "rationale": "Repeated assessment must be safe for reused in-memory fixtures.",
+      "title": "Feature construction does not mutate caller records"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "Complete fixture score and sum of groups both equal 15.75.",
+      "family": "scoring",
+      "id": "SCORE-neutral-hand-calculated",
+      "rationale": "Reference groups contribute 1.25+0.75+0.75+12+0.50+0.50; flow balance supplies the 12 behavior points.",
+      "title": "Neutral fixture reconciles to 15.75 index points"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "All-cash behavior contributes exactly 15 points, not five times 15.",
+      "family": "overlap",
+      "id": "SCORE-overlap-max",
+      "rationale": "The same events appear in 7d, 30d, 90d and last-N windows; naive addition would amplify one exposure.",
+      "title": "Overlapping cash windows do not each add points"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "Both maximum profile and maximum observed exposure contribute 15 geography points in total.",
+      "family": "overlap",
+      "id": "SCORE-geography-max",
+      "rationale": "Profile geography and observed exposure can represent the same underlying relationship.",
+      "title": "Profile and activity geography are not double counted"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "All-high fixture with fivefold expected-volume excess reaches exactly 100.",
+      "family": "scoring",
+      "id": "SCORE-index-bounds",
+      "rationale": "Caps make contribution limits explicit; saturation is a policy choice, not calibrated likelihood.",
+      "title": "Simultaneous high evidence remains inside the 100-point cap"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "Behavior contribution equals 12 for monthly expectation 4000 and observed amount 6000.",
+      "family": "expectation",
+      "id": "SCORE-volume-low",
+      "rationale": "Reference severity is clipped linear interpolation from ratio 1.5 to 5; the behavior group takes the maximum including 12 flow points.",
+      "title": "Expected-volume low threshold arithmetic"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "Behavior contribution equals 12.5 for monthly expectation 1846.1538461538462 and observed amount 6000.",
+      "family": "expectation",
+      "id": "SCORE-volume-mid",
+      "rationale": "Reference severity is clipped linear interpolation from ratio 1.5 to 5; the behavior group takes the maximum including 12 flow points.",
+      "title": "Expected-volume mid threshold arithmetic"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "Behavior contribution equals 25 for monthly expectation 1200 and observed amount 6000.",
+      "family": "expectation",
+      "id": "SCORE-volume-high",
+      "rationale": "Reference severity is clipped linear interpolation from ratio 1.5 to 5; the behavior group takes the maximum including 12 flow points.",
+      "title": "Expected-volume high threshold arithmetic"
+    },
+    {
+      "category": "routing",
+      "expected": "Changing unresolved screening from 0 to 1 preserves index and activates the TRUE review route.",
+      "family": "screening",
+      "id": "ROUTE-screening-separate",
+      "rationale": "A numerical AML index neither clears nor confirms a screening match.",
+      "title": "Unresolved screening opens a separate review route"
+    },
+    {
+      "category": "routing",
+      "expected": "Null screening evidence produces UNKNOWN independently of the numerical index.",
+      "family": "screening",
+      "id": "ROUTE-screening-unknown",
+      "rationale": "A missing screening observation must not look like a cleared match.",
+      "title": "Missing screening evidence is an UNKNOWN route state"
+    },
+    {
+      "category": "routing",
+      "expected": "The reference route is FALSE just below 0.5 and TRUE exactly at 0.5.",
+      "family": "screening",
+      "id": "ROUTE-screening-edge",
+      "rationale": "Routing boundaries need explicit tests independently of rating bands.",
+      "title": "Screening route threshold is inclusive"
+    },
+    {
+      "category": "missing",
+      "expected": "With all profile concerns zero, unknown geography produces bounds [12,27], LOW band and null score.",
+      "family": "missing_bounds",
+      "id": "QUAL-optional-within-band",
+      "rationale": "Missing optional evidence can preclude an exact score without crossing the band boundary.",
+      "title": "Optional missing exposure can leave one bounded band"
+    },
+    {
+      "category": "missing",
+      "expected": "Unknown geography in the neutral fixture produces bounds [15.75,30] and REVIEW_REQUIRED.",
+      "family": "missing_bounds",
+      "id": "QUAL-optional-crosses-band",
+      "rationale": "A minimum possible score does not justify a final band when the upper bound reaches another band.",
+      "title": "Optional missing exposure crossing a band requires review"
+    },
+    {
+      "category": "boundary",
+      "expected": "The last10 cash factor is unavailable with incomplete_window despite four observed events.",
+      "family": "support",
+      "id": "QUAL-last10-incomplete",
+      "rationale": "Meeting minimum support and filling the declared observation window are separate requirements.",
+      "title": "Four events do not constitute a complete last-ten window"
+    },
+    {
+      "category": "temporal",
+      "expected": "A 730-day-old effective profile contributes 10 evidence points while fresh data contributes 0.5 documentation points.",
+      "family": "profile_age",
+      "id": "TIME-stale-profile",
+      "rationale": "Age is measured from the effective snapshot and is not confused with relationship tenure.",
+      "title": "Old profile evidence contributes only through its declared policy ramp"
+    },
+    {
+      "category": "invariance",
+      "expected": "Adding a 350-day-old record preserves index and changes the event digest.",
+      "family": "retention",
+      "id": "INV-outside-policy-windows",
+      "rationale": "A retained event can belong to lifetime features while lying outside every scored activity window and last-N set.",
+      "title": "An old retained event alters lineage without changing current policy index"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "All-cash behavior remains 15 points when balanced directions are replaced by incoming-only flow.",
+      "family": "overlap",
+      "id": "SCORE-nonleading-proxy",
+      "rationale": "Maximum aggregation intentionally makes a non-leading evidence change have zero marginal group points.",
+      "title": "A weaker overlapping proxy does not add to the strongest signal"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "A cash amount share of 0.2 contributes 0 raw cash_7d points.",
+      "family": "cash_exposure",
+      "id": "SCORE-cash-low",
+      "rationale": "The cash factor linearly interpolates its declared share from 0.2 to 0.8; denominator and minimum support are explicit.",
+      "title": "Cash-share low ramp arithmetic"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "A cash amount share of 0.5 contributes 7.5 raw cash_7d points.",
+      "family": "cash_exposure",
+      "id": "SCORE-cash-mid",
+      "rationale": "The cash factor linearly interpolates its declared share from 0.2 to 0.8; denominator and minimum support are explicit.",
+      "title": "Cash-share mid ramp arithmetic"
+    },
+    {
+      "category": "policy_arithmetic",
+      "expected": "A cash amount share of 0.8 contributes 15 raw cash_7d points.",
+      "family": "cash_exposure",
+      "id": "SCORE-cash-high",
+      "rationale": "The cash factor linearly interpolates its declared share from 0.2 to 0.8; denominator and minimum support are explicit.",
+      "title": "Cash-share high ramp arithmetic"
+    }
+  ],
+  "category_counts": {
+    "arithmetic": 18,
+    "boundary": 3,
+    "counterexample": 7,
+    "invalid_input": 12,
+    "invariance": 7,
+    "missing": 8,
+    "paired_context": 9,
+    "policy_arithmetic": 11,
+    "routing": 3,
+    "temporal": 18
+  },
+  "interpretation": "Executable synthetic cases, not independent typologies or effectiveness observations.",
+  "schema_version": "1.0.0",
+  "source": "src/crw/scenarios.py:scenario_catalog"
+}

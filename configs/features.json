@@ -1,0 +1,802 @@
+[
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.adverse_information",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.business_complexity",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.cash_intensity",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.channel_opacity",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.cross_border_exposure",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.documentation_gap",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.geography_exposure",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.ownership_opacity",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.pep_exposure",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.product_complexity",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.screening_unresolved",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Adapter-supplied evidence; illustrative policy mapping",
+    "name": "profile.source_of_funds_concern",
+    "unit": "normalized 0..1"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.1d.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.1d.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.1d.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.1d.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.1d.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.1d.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.1d.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.1d.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.1d.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.1d.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.1d.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.1d.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.1d.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.7d.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.7d.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.7d.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.7d.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.7d.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.7d.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.7d.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.7d.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.7d.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.7d.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.7d.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.7d.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.7d.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.30d.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.30d.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.30d.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.30d.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.30d.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.30d.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.30d.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.30d.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.30d.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.30d.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.30d.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.30d.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.30d.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.90d.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.90d.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.90d.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.90d.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.90d.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.90d.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.90d.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.90d.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.90d.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.90d.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.90d.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.90d.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.90d.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.180d.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.180d.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.180d.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.180d.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.180d.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.180d.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.180d.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.180d.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.180d.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.180d.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.180d.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.180d.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.180d.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.365d.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.365d.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.365d.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.365d.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.365d.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.365d.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.365d.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.365d.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.365d.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.365d.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.365d.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.365d.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.365d.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.lifetime.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.lifetime.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.lifetime.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.lifetime.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.lifetime.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.lifetime.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.lifetime.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.lifetime.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.lifetime.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.lifetime.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.lifetime.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.lifetime.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.lifetime.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.last4.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.last4.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.last4.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.last4.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.last4.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.last4.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.last4.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.last4.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.last4.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.last4.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.last4.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.last4.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.last4.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.last10.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.last10.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.last10.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.last10.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.last10.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.last10.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.last10.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.last10.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.last10.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.last10.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.last10.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.last10.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.last10.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.last25.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.last25.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.last25.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.last25.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.last25.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.last25.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.last25.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.last25.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.last25.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.last25.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.last25.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.last25.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.last25.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Observed transaction count",
+    "name": "txn.last50.count",
+    "unit": "events"
+  },
+  {
+    "meaning": "Observed amount sum",
+    "name": "txn.last50.total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Incoming amount sum",
+    "name": "txn.last50.in_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Outgoing amount sum",
+    "name": "txn.last50.out_total",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Cash amount / total amount",
+    "name": "txn.last50.cash_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Digital channel amount / total amount",
+    "name": "txn.last50.digital_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Distinct opaque counterparty IDs",
+    "name": "txn.last50.counterparty_count",
+    "unit": "counterparties"
+  },
+  {
+    "meaning": "Amount-weighted supplied jurisdiction risk; unknown if any exposure unmapped",
+    "name": "txn.last50.high_risk_share",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "min(in,out) / max(in,out); aggregate balance proxy, not traced funds",
+    "name": "txn.last50.flow_through",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Largest counterparty event count / event count",
+    "name": "txn.last50.concentration",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "Total / count",
+    "name": "txn.last50.mean_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Largest observed amount",
+    "name": "txn.last50.max_amount",
+    "unit": "base unit"
+  },
+  {
+    "meaning": "Mapped events / all events",
+    "name": "txn.last50.jurisdiction_coverage",
+    "unit": "fraction"
+  },
+  {
+    "meaning": "30-day observed / declared monthly expectation; full window required",
+    "name": "txn.30d.expected_volume_ratio",
+    "unit": "ratio"
+  },
+  {
+    "meaning": "30-day total / preceding 30 days; positive denominator and 60-day history required",
+    "name": "txn.30d.growth_ratio",
+    "unit": "ratio"
+  },
+  {
+    "meaning": "Cutoff minus effective profile timestamp",
+    "name": "profile_age_days",
+    "unit": "days"
+  },
+  {
+    "meaning": "Cutoff minus onboarding",
+    "name": "tenure_days",
+    "unit": "days"
+  },
+  {
+    "meaning": "Cutoff minus retained history start",
+    "name": "observed_history_days",
+    "unit": "days"
+  }
+]

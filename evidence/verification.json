@@ -1,0 +1,337 @@
+{
+  "automated_tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 230
+  },
+  "browser_spot_check": {
+    "application": "Safari",
+    "limit": "Manual selected desktop interactions; no exhaustive cross-browser, mobile or accessibility certification.",
+    "scope": [
+      "overview renders retained counts",
+      "customer search and selection",
+      "missing-ownership stress details",
+      "threshold control changes displayed boundary",
+      "research metrics and fixed-model section"
+    ]
+  },
+  "coverage_by_module": {
+    "src/crw/__init__.py": {
+      "covered_lines": 1,
+      "excluded_lines": 0,
+      "missing_lines": 0,
+      "num_statements": 1,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "src/crw/__main__.py": {
+      "covered_lines": 0,
+      "excluded_lines": 0,
+      "missing_lines": 2,
+      "num_statements": 2,
+      "percent_covered": 0.0,
+      "percent_covered_display": "0",
+      "percent_statements_covered": 0.0,
+      "percent_statements_covered_display": "0"
+    },
+    "src/crw/cli.py": {
+      "covered_lines": 108,
+      "excluded_lines": 0,
+      "missing_lines": 85,
+      "num_statements": 193,
+      "percent_covered": 55.95854922279793,
+      "percent_covered_display": "56",
+      "percent_statements_covered": 55.95854922279793,
+      "percent_statements_covered_display": "56"
+    },
+    "src/crw/contracts.py": {
+      "covered_lines": 101,
+      "excluded_lines": 0,
+      "missing_lines": 9,
+      "num_statements": 110,
+      "percent_covered": 91.81818181818181,
+      "percent_covered_display": "92",
+      "percent_statements_covered": 91.81818181818181,
+      "percent_statements_covered_display": "92"
+    },
+    "src/crw/features.py": {
+      "covered_lines": 86,
+      "excluded_lines": 0,
+      "missing_lines": 0,
+      "num_statements": 86,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "src/crw/io.py": {
+      "covered_lines": 44,
+      "excluded_lines": 0,
+      "missing_lines": 30,
+      "num_statements": 74,
+      "percent_covered": 59.45945945945946,
+      "percent_covered_display": "59",
+      "percent_statements_covered": 59.45945945945946,
+      "percent_statements_covered_display": "59"
+    },
+    "src/crw/learning.py": {
+      "covered_lines": 371,
+      "excluded_lines": 0,
+      "missing_lines": 45,
+      "num_statements": 416,
+      "percent_covered": 89.1826923076923,
+      "percent_covered_display": "89",
+      "percent_statements_covered": 89.1826923076923,
+      "percent_statements_covered_display": "89"
+    },
+    "src/crw/monitoring.py": {
+      "covered_lines": 69,
+      "excluded_lines": 0,
+      "missing_lines": 11,
+      "num_statements": 80,
+      "percent_covered": 86.25,
+      "percent_covered_display": "86",
+      "percent_statements_covered": 86.25,
+      "percent_statements_covered_display": "86"
+    },
+    "src/crw/patterns.py": {
+      "covered_lines": 69,
+      "excluded_lines": 0,
+      "missing_lines": 6,
+      "num_statements": 75,
+      "percent_covered": 92.0,
+      "percent_covered_display": "92",
+      "percent_statements_covered": 92.0,
+      "percent_statements_covered_display": "92"
+    },
+    "src/crw/policy.py": {
+      "covered_lines": 106,
+      "excluded_lines": 0,
+      "missing_lines": 15,
+      "num_statements": 121,
+      "percent_covered": 87.60330578512396,
+      "percent_covered_display": "88",
+      "percent_statements_covered": 87.60330578512396,
+      "percent_statements_covered_display": "88"
+    },
+    "src/crw/render.py": {
+      "covered_lines": 13,
+      "excluded_lines": 0,
+      "missing_lines": 0,
+      "num_statements": 13,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "src/crw/scenarios.py": {
+      "covered_lines": 335,
+      "excluded_lines": 0,
+      "missing_lines": 1,
+      "num_statements": 336,
+      "percent_covered": 99.70238095238095,
+      "percent_covered_display": "99",
+      "percent_statements_covered": 99.70238095238095,
+      "percent_statements_covered_display": "99"
+    },
+    "src/crw/scoring.py": {
+      "covered_lines": 75,
+      "excluded_lines": 0,
+      "missing_lines": 3,
+      "num_statements": 78,
+      "percent_covered": 96.15384615384616,
+      "percent_covered_display": "96",
+      "percent_statements_covered": 96.15384615384616,
+      "percent_statements_covered_display": "96"
+    },
+    "src/crw/storage.py": {
+      "covered_lines": 139,
+      "excluded_lines": 0,
+      "missing_lines": 2,
+      "num_statements": 141,
+      "percent_covered": 98.58156028368795,
+      "percent_covered_display": "99",
+      "percent_statements_covered": 98.58156028368795,
+      "percent_statements_covered_display": "99"
+    },
+    "src/crw/stress.py": {
+      "covered_lines": 40,
+      "excluded_lines": 0,
+      "missing_lines": 1,
+      "num_statements": 41,
+      "percent_covered": 97.5609756097561,
+      "percent_covered_display": "98",
+      "percent_statements_covered": 97.5609756097561,
+      "percent_statements_covered_display": "98"
+    },
+    "src/crw/synthetic.py": {
+      "covered_lines": 56,
+      "excluded_lines": 0,
+      "missing_lines": 0,
+      "num_statements": 56,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "src/crw/validation.py": {
+      "covered_lines": 343,
+      "excluded_lines": 0,
+      "missing_lines": 28,
+      "num_statements": 371,
+      "percent_covered": 92.45283018867924,
+      "percent_covered_display": "92",
+      "percent_statements_covered": 92.45283018867924,
+      "percent_statements_covered_display": "92"
+    },
+    "src/crw/workflow.py": {
+      "covered_lines": 66,
+      "excluded_lines": 0,
+      "missing_lines": 5,
+      "num_statements": 71,
+      "percent_covered": 92.95774647887323,
+      "percent_covered_display": "93",
+      "percent_statements_covered": 92.95774647887323,
+      "percent_statements_covered_display": "93"
+    }
+  },
+  "demo": {
+    "limits": [
+      "Illustrative policy has not been calibrated on an operational population.",
+      "Synthetic scenario coverage does not estimate detection effectiveness.",
+      "No real customer data, employer processes or private regulatory interpretations are included.",
+      "Independent institutional validation and approved-environment integration remain necessary."
+    ],
+    "meta": {
+      "as_of": "2026-10-01T00:00:00Z",
+      "customers": 1000,
+      "data_status": "SYNTHETIC REFERENCE DEMONSTRATION",
+      "generated_at": "2026-10-28T19:35:46.843507+00:00",
+      "policy_hash": "1d21ef2d077b38b28535522b3d7ac2adefe1cd78f0017c5cd02bc799fe8a4961",
+      "result_digest": "7f245ac030d78de323f70493d6b28661921535ceb19bbc5bf05bb16b3ae75872",
+      "seed": 42,
+      "transactions": 80000,
+      "unit": "SYNTHETIC_UNIT",
+      "version": "0.1.0"
+    },
+    "operational": {
+      "chunk_replay_identical": true,
+      "counts": {
+        "assessments": 1000,
+        "customers": 1000,
+        "entities": 1000,
+        "runs": 2,
+        "transactions": 80000
+      },
+      "end_to_end_seconds": 6.01765033393167,
+      "ingest": {
+        "customers_inserted": 1000,
+        "customers_unchanged": 0,
+        "transactions_inserted": 80000,
+        "transactions_unchanged": 0
+      },
+      "measurement_scope": "generate, write fixtures, SQLite ingest, two score/export passes, scenario and selected-example assembly; excludes research and HTML rendering"
+    },
+    "summary": {
+      "bands": {
+        "HIGH": 175,
+        "LOW": 164,
+        "MODERATE": 601,
+        "REVIEW_REQUIRED": 60
+      },
+      "incomplete_scores": 92,
+      "mean_coverage": 0.9958695652173912,
+      "mean_index": 38.34409252084698,
+      "screening_reviews": 45,
+      "selected_customer_examples": 60
+    }
+  },
+  "environment": {
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "python": "3.12.14",
+    "research_versions": {
+      "numpy": "2.5.4",
+      "python": "3.12.14",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1"
+    }
+  },
+  "limits": [
+    "Synthetic evidence cannot establish real-world detection effectiveness.",
+    "Statement coverage counts executed Python statements; it is not behavioral completeness and does not cover browser rendering.",
+    "Benchmarks were observed on a development machine with concurrent activity; they are not controlled capacity estimates.",
+    "Local evidence and external CI status are separate; see the repository Actions history for remote execution."
+  ],
+  "numerical_crosscheck": {
+    "absolute_tolerance": 1e-12,
+    "cases": 100,
+    "comparisons": 785,
+    "maximum_absolute_error": 1.454392162258955e-14,
+    "passed": true,
+    "undefined_checks": 15
+  },
+  "release_version": "0.1.0",
+  "research": {
+    "customers_per_experiment": 3000,
+    "frozen_model_seed_combinations": 9,
+    "frozen_stress_comparisons": 36,
+    "refitted_experiments": 12,
+    "seeds": [
+      7,
+      19,
+      41
+    ]
+  },
+  "review": {
+    "closed_findings": [
+      "historical batch population eligibility",
+      "standalone concurrent snapshot consistency",
+      "amount-unit lineage",
+      "duplicate stress baseline identifiers",
+      "missing-evidence stress display semantics"
+    ],
+    "scope_limit": "Bounded reviews and executable regressions; not institutional independent validation.",
+    "type": "AI-assisted implementation and document review"
+  },
+  "scenarios": {
+    "failed": 0,
+    "passed": 96,
+    "total": 96
+  },
+  "statement_coverage": {
+    "covered_lines": 2022,
+    "excluded_lines": 0,
+    "missing_lines": 243,
+    "num_statements": 2265,
+    "percent_covered": 89.27152317880795,
+    "percent_covered_display": "89",
+    "percent_statements_covered": 89.27152317880795,
+    "percent_statements_covered_display": "89"
+  },
+  "verified_date": "2026-10-28",
+  "wheel_check": {
+    "chunk_replay_identical": true,
+    "customers": 12,
+    "execution": "temporary working directory outside source checkout; PYTHONPATH removed",
+    "installation": "fresh virtual environment, no-index wheel install, no optional dependencies",
+    "installed_distributions": [
+      "customer-risk-workbench",
+      "pip"
+    ],
+    "limit": "Core package smoke check; browser behavior and optional research dependencies are checked separately.",
+    "python": "3.12.14",
+    "scenario_results": {
+      "failed": 0,
+      "passed": 96,
+      "total": 96
+    },
+    "standalone_html_written": true,
+    "status": "passed",
+    "transactions": 960,
+    "wheel": "customer_risk_workbench-0.1.0-py3-none-any.whl",
+    "wheel_sha256": "2c7a9994cd9283bff057a284acad20e29d239fd913fc71e64aad4da27af4b911"
+  }
+}

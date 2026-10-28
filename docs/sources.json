@@ -1,0 +1,212 @@
+[
+  {
+    "id": "REG-01",
+    "title": "Federal Reserve SR 26-2: Revised Guidance on Model Risk Management",
+    "url": "https://www.federalreserve.gov/supervisionreg/srletters/sr2602.htm",
+    "published": "2026-04-17",
+    "accessed": "2026-10-28",
+    "status": "current supervisory letter; full official HTML retrieved",
+    "supports": [
+      "Supersedes SR 11-7 and SR 21-8; proportional model-risk approach."
+    ],
+    "limits": [
+      "Applicability depends on organization and use; not certification."
+    ]
+  },
+  {
+    "id": "REG-02",
+    "title": "Interagency Supervisory Guidance on Model Risk Management",
+    "url": "https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf",
+    "published": "2026-04-17",
+    "accessed": "2026-10-28",
+    "status": "current joint supervisory guidance; official 12-page PDF retrieved",
+    "supports": [
+      "Development, validation, outcomes analysis, monitoring, governance, and third-party products."
+    ],
+    "limits": [
+      "Non-prescriptive guidance; does not supply this package's parameters or approval."
+    ]
+  },
+  {
+    "id": "REG-03",
+    "title": "OCC Bulletin 2026-13: Model Risk Management Revised Guidance",
+    "url": "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html",
+    "published": "2026-04-17",
+    "accessed": "2026-10-28",
+    "status": "current bulletin; full official HTML retrieved",
+    "supports": [
+      "Scope definitions and rescission of earlier OCC model-risk issuances."
+    ],
+    "limits": [
+      "Some deterministic tools and generative/agentic AI are outside the guidance's scope; other governance still applies."
+    ]
+  },
+  {
+    "id": "REG-04",
+    "title": "FDIC: Agencies Issue Revised Model Risk Guidance",
+    "url": "https://www.fdic.gov/news/press-releases/2026/agencies-issue-revised-model-risk-guidance",
+    "published": "2026-04-17",
+    "accessed": "2026-10-28",
+    "status": "official indexed text retrieved; direct open returned HTTP 403",
+    "supports": [
+      "FDIC joint issuance and rescission of FIL-22-2017 and FIL-27-2021."
+    ],
+    "limits": [
+      "Use retrieved joint Fed/OCC text for substantive provisions. FIL-15-2026 identified through official FDIC index."
+    ]
+  },
+  {
+    "id": "REG-05",
+    "title": "FFIEC BSA/AML Examination Manual: Customer Due Diligence Overview",
+    "url": "https://bsaaml.ffiec.gov/manual/AssessingComplianceWithBSARegulatoryRequirements/02",
+    "published": null,
+    "accessed": "2026-10-28",
+    "status": "live official HTML retrieved; reliable revision date not exposed",
+    "supports": [
+      "Contextual customer risk profiles and relevant categories."
+    ],
+    "limits": [
+      "Examiner guidance does not itself establish requirements; live page date not invented from historical PDF."
+    ]
+  },
+  {
+    "id": "REG-06",
+    "title": "Joint Statement on Risk-Based Customer Relationships and CDD (SR 22-5)",
+    "url": "https://www.federalreserve.gov/frrs/regulations/joint-statement-on-the-risk-based-approach-to-assessing-customer-relationships-and-conducting-customer-due-diligence.htm",
+    "published": "2022-07-06",
+    "accessed": "2026-10-28",
+    "status": "official substantive text retrieved",
+    "supports": [
+      "Customer types do not present one uniform risk level; relationship-specific assessment."
+    ],
+    "limits": [
+      "Does not prescribe numeric weights, bands, or automatic customer actions."
+    ]
+  },
+  {
+    "id": "REG-07",
+    "title": "FinCEN consolidated CDD Rule FAQs",
+    "url": "https://www.fincen.gov/resources/statutes-and-regulations/cdd-rule-faqs",
+    "published": "2026-05-06",
+    "accessed": "2026-10-28",
+    "status": "official HTML retrieved; consolidated entries retain earlier issue dates and selected 2026 updates",
+    "supports": [
+      "FAQs F.5-F.6 address scoring method/category and update cadence; B.1.b addresses optional account-opening relief."
+    ],
+    "limits": [
+      "FAQ interpretation is not a complete legal applicability analysis. Publication field records relevant consolidation/update date, not every FAQ's origin."
+    ]
+  },
+  {
+    "id": "REG-08",
+    "title": "FIN-2026-R001: Exceptive Relief from Requirement to Identify and Verify Beneficial Owners at Each Account Opening",
+    "url": "https://www.fincen.gov/system/files/2026-02/FinCEN-Order-CCDExceptiveRelief.pdf",
+    "published": "2026-02-13",
+    "accessed": "2026-10-28",
+    "status": "official 9-page order retrieved",
+    "supports": [
+      "Optional account-opening relief with first-account, reliability, and risk-based ongoing-review triggers."
+    ],
+    "limits": [
+      "Does not remove other applicable AML/CFT obligations or mean no ownership review."
+    ]
+  },
+  {
+    "id": "REG-09",
+    "title": "Beneficial Ownership Information Reporting Requirement Revision, 91 FR 52508",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2026-08-14/pdf/2026-16576.pdf",
+    "published": "2026-08-14",
+    "accessed": "2026-10-28",
+    "status": "final rule; effective 2026-08-14; official 21-page PDF retrieved",
+    "supports": [
+      "CTA reporting exemptions and explicit distinction from financial-institution CDD."
+    ],
+    "limits": [
+      "Corporate reporting status is not a CDD exemption or a sanctions determination."
+    ]
+  },
+  {
+    "id": "REG-10",
+    "title": "FATF Recommendations, updated June 2026",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf",
+    "published": "2026-06",
+    "accessed": "2026-10-28",
+    "status": "official 151-page PDF retrieved; cover and amendment annex verified",
+    "supports": [
+      "Recommendations 1 and 10 and their interpretive notes address proportionality and CDD."
+    ],
+    "limits": [
+      "International standards need jurisdictional implementation; not a universal executable policy. Do not redistribute the publication as project-authored material."
+    ]
+  },
+  {
+    "id": "REG-11",
+    "title": "FATF Risk-Based Approach for the Banking Sector",
+    "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Risk-based-approach-banking-sector.html",
+    "published": "2014-10",
+    "accessed": "2026-10-28",
+    "status": "historical guidance; live official page retrieved with explicit update warning",
+    "supports": [
+      "Banking-sector background for risk-based approaches."
+    ],
+    "limits": [
+      "Page says later revisions, including 2025 Recommendation 1 changes, are not incorporated."
+    ]
+  },
+  {
+    "id": "REG-12",
+    "title": "FATF Financial Inclusion and AML/TF Measures Guidance",
+    "url": "https://www.fatf-gafi.org/en/publications/Financialinclusionandnpoissues/guidance-financial-inclusion-aml-tf-measures.html",
+    "published": "2025-06",
+    "accessed": "2026-10-28",
+    "status": "official page and PDF text retrieved",
+    "supports": [
+      "Proportionality and financial-inclusion considerations."
+    ],
+    "limits": [
+      "Examples are contextual; they do not authorize disregarding local requirements."
+    ]
+  },
+  {
+    "id": "REG-13",
+    "title": "OFAC Framework for Compliance Commitments",
+    "url": "https://ofac.treasury.gov/media/16331/download?inline=",
+    "published": "2019-05-02",
+    "accessed": "2026-10-28",
+    "status": "official 12-page PDF retrieved; publication announcement verified",
+    "supports": [
+      "Sanctions compliance-program and risk-assessment considerations."
+    ],
+    "limits": [
+      "Framework is not a full statement of program prohibitions, authorizations, or screening logic."
+    ]
+  },
+  {
+    "id": "REG-14",
+    "title": "OFAC FAQ 401: Indirect ownership and the 50 Percent Rule",
+    "url": "https://ofac.treasury.gov/faqs/401",
+    "published": "2014-08-13",
+    "accessed": "2026-10-28",
+    "status": "live official FAQ text and examples retrieved",
+    "supports": [
+      "Aggregate and cascading ownership examples."
+    ],
+    "limits": [
+      "Not a complete sanctions-permissibility analysis; control and program-specific issues require separate assessment."
+    ]
+  },
+  {
+    "id": "REG-15",
+    "title": "FinCEN Fact Sheet: Proposed AML/CFT Program Rule",
+    "url": "https://www.fincen.gov/system/files/2026-04/Program-NPRM-FactSheet.pdf",
+    "published": "2026-04-07",
+    "accessed": "2026-10-28",
+    "status": "proposal fact sheet; official 7-page PDF retrieved",
+    "supports": [
+      "April 2026 proposal supersedes July 2024 proposal."
+    ],
+    "limits": [
+      "Proposal is not represented as operative law; complete subsequent docket history was not established in this targeted review."
+    ]
+  }
+]

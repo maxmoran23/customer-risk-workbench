@@ -1,0 +1,70 @@
+{
+  "$comment": "Python contract additionally enforces cross-field chronology, finite numbers and opaque identifier format.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "available_at": {
+      "description": "Explicit timezone required; canonicalized to UTC.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "channel": {
+      "enum": [
+        "wire",
+        "cash",
+        "card",
+        "digital",
+        "other"
+      ]
+    },
+    "counterparty_id": {
+      "type": "string"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "in",
+        "out"
+      ]
+    },
+    "jurisdiction_risk": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "occurred_at": {
+      "description": "Explicit timezone required; canonicalized to UTC.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "transaction_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "transaction_id",
+    "customer_id",
+    "occurred_at",
+    "available_at",
+    "amount",
+    "direction",
+    "counterparty_id",
+    "channel",
+    "jurisdiction_risk",
+    "source_id"
+  ],
+  "title": "Transaction",
+  "type": "object"
+}

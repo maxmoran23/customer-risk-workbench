@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "basis": "Independent arithmetic for the bundled illustrative policy; not an outcome label.",
+  "customers": {
+    "example-customer-01": {
+      "score": 15.75,
+      "band": "LOW",
+      "screening_state": "FALSE",
+      "groups": {"customer": 1.25, "geography": 0.75, "product_channel": 0.75, "behavior": 12.0, "context": 0.5, "evidence": 0.5}
+    },
+    "example-customer-02": {
+      "score": 48.4,
+      "band": "MODERATE",
+      "screening_state": "FALSE",
+      "groups": {"customer": 14.5, "geography": 10.5, "product_channel": 6.8, "behavior": 12.0, "context": 2.6, "evidence": 2.0}
+    },
+    "example-customer-03": {
+      "score": 82.8,
+      "band": "HIGH",
+      "screening_state": "TRUE",
+      "groups": {"customer": 22.0, "geography": 12.0, "product_channel": 12.8, "behavior": 25.0, "context": 6.0, "evidence": 5.0}
+    }
+  },
+  "missing_ownership": {
+    "customer_id": "example-customer-01",
+    "score": null,
+    "band": "REVIEW_REQUIRED",
+    "lower_bound": 15.25,
+    "upper_bound": 25.25,
+    "required_gate": "required_evidence_missing"
+  },
+  "monitoring": {
+    "minimum_population": 50,
+    "matched_customers": 3,
+    "required_signal": "insufficient_population_support"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "as_of": "2026-10-01T00:00:00Z",
+  "base_unit": "SYNTHETIC_UNIT",
+  "customers": 3,
+  "data_status": "synthetic_only",
+  "files": {
+    "customers.jsonl": "5b2f88913fc0491450d2bd55479060020aab5d381681ec25bb18706bd101aceb",
+    "transactions.jsonl": "3a08896586983660e099aaa3e9a960122b6f098e778453769d4d1ca4e32b29d4"
+  },
+  "fixture_version": "1.0.0",
+  "generator": "build_fixtures.py:build_records",
+  "interpretation": "Three constructed engineering fixtures, not a representative evaluation sample.",
+  "policy_hash": "1d21ef2d077b38b28535522b3d7ac2adefe1cd78f0017c5cd02bc799fe8a4961",
+  "randomness": "none; explicitly constructed records",
+  "transactions": 240,
+  "transactions_per_customer": 80
+}
