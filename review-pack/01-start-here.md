@@ -14,7 +14,7 @@ Source: `README.md`
 
 # Customer Risk Workbench
 
-**An executable, public reference suite for customer risk assessment, model research, and technical challenge.** Start with normalized customer and transaction records; reconstruct retained evidence available at an assessment cutoff; inspect a configurable risk index; test scenarios, alternative models, uncertainty, and operational behavior.
+**An executable, public reference suite for customer risk assessment, model research, and technical challenge.** Release 0.2.0 adds two program kits: a categorical rating-model rebuild (attribute review, connections, rules) and change-impact assessment (migration matrices, reconciliation, parity, AI-drafting guard). Start with normalized customer and transaction records; reconstruct retained evidence available at an assessment cutoff; inspect a configurable risk index; test scenarios, alternative models, uncertainty, and operational behavior.
 
 This is original open-source research software by Max Moran, developed with AI assistance. All bundled customers, transactions, labels, and operating policies are synthetic or illustrative. It has not undergone institutional independent validation and does not claim real-world detection effectiveness, regulatory approval, or production readiness.
 
@@ -27,7 +27,9 @@ This is original open-source research software by Max Moran, developed with AI a
 | Run a small transparent example | [Three-customer walkthrough](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/example-walkthrough.md) | Hand-reconciled contributions, required-evidence removal, replay and monitoring |
 | Challenge the mathematics | [Statistical methods and APIs](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/statistical-methods.md) | [Tests](https://github.com/maxmoran23/customer-risk-workbench/tree/main/tests), [research evidence](https://github.com/maxmoran23/customer-risk-workbench/blob/main/evidence/research.json), [verification](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/verification.md) |
 | Evaluate adaptation | [Adoption guide](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/adoption-guide.md) | [Worked templates](https://github.com/maxmoran23/customer-risk-workbench/tree/main/templates), [AI-assisted adaptation](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/ai-assistance.md) |
-| Transfer a compact reading pack | [Eight attachment groups](https://github.com/maxmoran23/customer-risk-workbench/tree/main/review-pack) | Full source remains organized by responsibility below |
+| Rebuild a categorical rating model | [Attribute-review playbook](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/attribute-review-playbook.md) | [Program sequencing](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/program-sequencing.md), [connections method](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/connections-method.md), [rule design](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/rule-design.md) |
+| Automate change-impact assessments | [Impact-assessment playbook](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/impact-assessment-playbook.md) | [Automation architecture](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/impact-automation-architecture.md), [AI workflows](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/ai-workflows.md), [prompts](https://github.com/maxmoran23/customer-risk-workbench/tree/main/prompts) |
+| Transfer a compact reading pack | [Ten attachment groups](https://github.com/maxmoran23/customer-risk-workbench/tree/main/review-pack) | Full source remains organized by responsibility below |
 
 The HTML runs offline: no login, installation, external fonts, telemetry, AI API, or hosted service is required. It contains selected synthetic examples and retained research evidence. GitHub displays HTML source; download/open the file to use the interface.
 
@@ -47,6 +49,40 @@ The HTML runs offline: no login, installation, external fonts, telemetry, AI API
 | Operational reference | Real SQLite, atomic ingest, immutable content IDs, snapshot reads, complete-run export, append-only review records | Local single-writer implementation; authentication and production operations remain adopter work |
 | Review interface | Eight offline views with explanations, search, comparisons and evidence export | Selected examples labeled; complete portfolio statistics separate |
 | Governance and adoption | Current-source regulatory map, worked model/validation/adapter/decision templates, compact review packs | No fabricated sign-off or employer-specific content |
+
+## Program kits (0.2.0)
+
+Two independent kits for work that institutions running a categorical customer risk rating model repeat on every rebuild and every release. Both use the same contracts, synthetic data and evidence conventions as the core.
+
+**Categorical rating rebuild (attribute review).** Stages run in dependency order and later stages report as blocked until earlier ones meet their exit criteria: population scoping, entity segmentation, value classification, connections review, rule design, weighting and calibration, output validation.
+
+| Capability | Implementation | Boundary |
+| --- | --- | --- |
+| Value catalog | Five classes (override_high, elevator, neutral, mitigator, override_low) with score rules relative to a configurable neutral point; current and proposed assignments; evidence register; review statuses with decision records | Classes are illustrative; policy owners decide them |
+| Normalization audit | Unmapped, unknown, conflicting, duplicate and orphan values; lexical fragmentation candidates; party-weighted coverage | Lexical similarity is a review prompt, not equivalence |
+| Review workbook | Per-attribute sheet (instructions, profile, evidence, value inventory) plus CSV inventories; validated round-trip import with read-only current assignments | Spreadsheet edits never change in-force classes |
+| Connections screen | Bias-corrected Cramer's V; interaction odds ratio per value pair with Benjamini-Hochberg control; proxy flag; leg-contribution test for proposed combinations | Descriptive and label-dependent; recovers a planted synthetic synergy |
+| Rules | Atomic and compound three-valued rules with floor or route effects; simulation of firing, unknowns, overlap, redundancy, shadowing and marginal tier changes | Population-specific; not effectiveness |
+| Scoping and gates | Role-to-scope resolution with precedence; seven-stage gate report | Planning control, not approval |
+
+**Change-impact assessment.** For each change promoted to a test environment: join before/after tier snapshots, report per-segment migration in a fixed familiar layout, and put new analysis in annexes.
+
+| Capability | Implementation | Boundary |
+| --- | --- | --- |
+| Migration engine | Hash-partitioned streaming join with bounded memory; pinned-party exclusion and integrity check; entrants, exits, segment changes; aggregate-only segments with a minimum-movers bound | Single node; snapshots must be immutable during a run |
+| In-database SQL | Generated set-based SQL with a scope-table join in place of repeated list imports; identifier validation; cell-for-cell parity with the Python engine on SQLite | Adapter and indexing are adopter work |
+| Expectations | Change manifest derived from a pre-deployment preview; post-run reconciliation surfaces every unexplained movement | Validates consistency with the manifest, not the manifest |
+| History and parity | Modified z-score against prior assessments; cell-level parity with an existing process (exact, within tolerance, mismatch); hash-chained register | Parity with a flawed standard is still parity |
+| AI drafting guard | Facts pack and vendor-neutral prompt; rejects any drafted narrative containing numbers not in the facts | Numeric grounding only; human review remains |
+
+```bash
+python -m crw program-demo --out runs/program-demo
+python -m crw attributes workbook --normalization runs/program-demo/attribute-review/normalization-table.csv --out runs/workbook
+python -m crw attributes import --inventory runs/workbook --out runs/catalog-reviewed.json
+cd examples/programs && python -m crw impact assess --pre snapshot-pre.csv --post snapshot-post.csv --config assessment-config.json --manifest change-manifest.json --standard standard-matrix.csv --out ../../runs/example-impact
+```
+
+The ten-party example in [`examples/programs`](https://github.com/maxmoran23/customer-risk-workbench/tree/main/examples/programs) is hand-checkable: two parties move up, one down, one pinned party is excluded, one exits and one enters. Reference configurations are generated into [`configs/programs`](https://github.com/maxmoran23/customer-risk-workbench/tree/main/configs/programs). A rendered synthetic report is in [`web/impact-assessment-example.html`](https://github.com/maxmoran23/customer-risk-workbench/blob/main/web/impact-assessment-example.html).
 
 The current verification record, exact test counts, measured timings, source hashes and limitations are in [the evidence dossier](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/verification.md). The case count is not a count of independently validated financial-crime typologies.
 
@@ -94,16 +130,18 @@ Regression is a useful transparent benchmark. Complexity is justified only when 
 ## Repository map
 
 ```text
-src/crw/       Typed contracts, features, policy, patterns, storage, research and diagnostics
-configs/       Versioned illustrative policy, schemas, feature and pattern catalogs
-examples/      Three-customer fixtures and executable end-to-end walkthrough
+src/crw/       Typed contracts, features, policy, patterns, storage, research and diagnostics;
+               attributes, connections, rules, program, impact, impact_sql, impact_report, narrative
+configs/       Versioned illustrative policy, schemas, feature and pattern catalogs; programs/ reference configs
+examples/      Three-customer fixtures, executable walkthrough, and hand-checkable program fixtures
 scenarios/     Named executable-case catalog and extension guide
 tests/         Independent arithmetic, boundary, statistical and real-database tests
 docs/          Technical methods, source registry, governance and reviewer routes
-templates/     Twelve worked adoption and review workpapers
+templates/     Worked adoption, review, attribute-review and impact-assessment workpapers
+prompts/       Vendor-neutral AI prompt pack with output contracts and required human checks
 evidence/      Generated results, benchmarks, verification and source-hash manifest
 web/           Standalone offline workbench
-review-pack/   Eight complete Markdown attachment groups and source manifest
+review-pack/   Ten complete Markdown attachment groups and source manifest
 scripts/       Reproduction, packaging and public-boundary checks
 ```
 

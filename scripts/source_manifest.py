@@ -21,6 +21,7 @@ DIRECTORIES = (
     "examples",
     "review-pack",
     "scripts",
+    "prompts",
 )
 FILES = (
     ".gitattributes",

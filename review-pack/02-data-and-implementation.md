@@ -72,6 +72,20 @@ The offline interface embeds synthetic data and research evidence. JSON characte
 
 Prior public toolkit materials informed workflow design; this runtime is independently implemented. [Provenance and licensing](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/provenance.md) record the inspected public versions. See [verification](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/verification.md) for tested behavior and remaining limits.
 
+## Program kits (0.2.0)
+
+Two kits sit beside the behavioral index and share its contract helpers (`ContractError`, `identifier`, `strict_fields`, `digest`). Neither imports the transaction pipeline, and the behavioral index does not depend on them.
+
+| Layer | Attribute review | Change-impact assessment |
+| --- | --- | --- |
+| Configuration | `configs/programs/catalog.json`, `model.json`, `rules.json`, `party-roles.json` | `configs/programs/tier-scale.json`, `assessment-config.json`, change manifests |
+| Validation | `attributes.Catalog`, `rules.CategoricalModel`, `rules.RuleSet`: strict fields, class-score consistency, evidence references | `impact.TierScale`, `impact.validate_config`, `impact.validate_manifest` |
+| Computation | Normalization audit, review diff and coverage, scoping, connections screen, rule simulation, stage gates | Partitioned join, matrices, aggregates, expectation reconciliation, baseline, parity, register; SQL generation for in-database execution |
+| Presentation | Per-attribute Markdown sheets and CSV inventories | Fixed-order Markdown, long CSV and standalone HTML; facts pack and drafting prompt |
+| Human decision | Policy owner records proposals and decisions; the code never sets `agreed` | Reviewer reads verdicts; the code never accepts or rejects a change |
+
+Data flow between the kits: a reviewed catalog's proposals feed `program_demo.preview_change`, which estimates migrations on a design-time population and seeds the change manifest; the post-deployment assessment then reconciles against that manifest. See [program sequencing](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/program-sequencing.md) and [impact automation architecture](https://github.com/maxmoran23/customer-risk-workbench/blob/main/docs/impact-automation-architecture.md).
+
 
 
 ---

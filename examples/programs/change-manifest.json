@@ -1,0 +1,55 @@
+{
+  "change_id": "CHG-EXAMPLE-01",
+  "change_type": "value_classification",
+  "description": "Illustrative reclassification.",
+  "expected_effects": [
+    {
+      "count": {
+        "max": 2,
+        "min": 2
+      },
+      "direction": "up",
+      "from": [
+        "*"
+      ],
+      "id": "EXP-UP",
+      "rationale": "Two parties hold the escalated value.",
+      "segments": [
+        "SEGMENT_A"
+      ],
+      "to": [
+        "*"
+      ]
+    },
+    {
+      "count": {
+        "max": 1,
+        "min": 1
+      },
+      "direction": "down",
+      "from": [
+        "MODERATE"
+      ],
+      "id": "EXP-DOWN",
+      "rationale": "One party holds the de-escalated value.",
+      "segments": [
+        "*"
+      ],
+      "to": [
+        "LOW"
+      ]
+    }
+  ],
+  "expected_population": {
+    "entrants": {
+      "max": 1,
+      "min": 0
+    },
+    "exits": {
+      "max": 1,
+      "min": 0
+    },
+    "rationale": "Ordinary onboarding and closure between snapshots."
+  },
+  "release": "example"
+}

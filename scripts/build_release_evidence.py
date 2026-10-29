@@ -22,9 +22,10 @@ def main():
     numerical = read("evidence/numerical-crosscheck.json")
     scenarios = read("evidence/scenario-results.json")
     wheel = read("evidence/wheel-check.json")
+    program = read("evidence/program-demo-summary.json")
     result = {
-        "release_version": "0.1.0",
-        "verified_date": "2026-10-28",
+        "release_version": "0.2.0",
+        "verified_date": "2026-10-29",
         "environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),
@@ -56,6 +57,15 @@ def main():
             ]
         },
         "wheel_check": wheel,
+        "program_kits": {
+            "parties": program["parties"],
+            "attribute_review": {k: program["attribute_review"][k] for k in (
+                "values", "pairs_screened", "hypotheses_tested", "planted_synergy_grade", "planted_null_grade",
+                "normalization_status", "program_stages")},
+            "impact": {k: program["impact"][k] for k in (
+                "matched", "moved", "expectations_verdict", "parity_verdict", "sql_parity_identical",
+                "narrative_check", "register", "history_assessments", "baseline_flags")},
+        },
         "browser_spot_check": {
             "application": "Safari",
             "scope": [
@@ -70,6 +80,9 @@ def main():
         "review": {
             "type": "AI-assisted implementation and document review",
             "closed_findings": [
+                "rule conditions on attributes not applicable to an entity type evaluated UNKNOWN instead of FALSE",
+                "override_low cap was dropped entirely when any floor fired instead of capping the score-derived tier",
+                "duplicate normalization rows were counted in party coverage totals",
                 "historical batch population eligibility",
                 "standalone concurrent snapshot consistency",
                 "amount-unit lineage",

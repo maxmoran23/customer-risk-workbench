@@ -1,0 +1,104 @@
+{
+  "attribute_review": {
+    "attributes": 8,
+    "classified_share": 0.9821428571428571,
+    "grade_counts": {
+      "insufficient_support": 181,
+      "not_supported": 482,
+      "supported_antagonism": 3,
+      "supported_synergy": 2,
+      "unadjusted_signal_only": 26
+    },
+    "hypotheses_tested": 513,
+    "normalization_issue_counts": {
+      "conflicting_mapping": 1,
+      "duplicate_rows": 1,
+      "fragmentation_candidates": 1,
+      "orphan_catalog_values": 0,
+      "unknown_attribute": 0,
+      "unknown_value": 0,
+      "unmapped": 1
+    },
+    "normalization_status": "blocking_issues",
+    "pairs_screened": 694,
+    "planted_null_grade": "not_supported",
+    "planted_synergy_grade": "supported_synergy",
+    "program_stages": {
+      "connections_review": "blocked",
+      "entity_segmentation": "complete",
+      "output_validation": "blocked",
+      "population_scoping": "complete",
+      "rule_design": "blocked",
+      "value_classification": "in_progress",
+      "weighting_and_calibration": "blocked"
+    },
+    "proposed_changes": {
+      "new_classification": 0,
+      "reclassified": 3,
+      "rescored": 0,
+      "unchanged": 0
+    },
+    "rated_population": 28163,
+    "reviewed_share": 0.08928571428571429,
+    "rules": {
+      "ATOM-01": {
+        "marginal_tier_changes": 111,
+        "true": 966,
+        "unknown": 222
+      },
+      "ATOM-02": {
+        "marginal_tier_changes": 426,
+        "true": 1473,
+        "unknown": 580
+      },
+      "COMP-01": {
+        "marginal_tier_changes": 20,
+        "true": 74,
+        "unknown": 23
+      },
+      "COMP-02": {
+        "marginal_tier_changes": 6,
+        "true": 7,
+        "unknown": 25
+      },
+      "COMP-03": {
+        "marginal_tier_changes": 1,
+        "true": 2,
+        "unknown": 7
+      },
+      "ROUTE-01": {
+        "marginal_tier_changes": null,
+        "true": 583,
+        "unknown": 638
+      }
+    },
+    "scope_counts": {
+      "customer": 20000,
+      "related_with_influence": 8163,
+      "related_without_influence": 8156,
+      "unresolved": 0
+    },
+    "values": 56,
+    "workbook_files": 18
+  },
+  "data_status": "synthetic",
+  "elapsed_seconds_observed": 2.53,
+  "impact": {
+    "baseline_flags": 10,
+    "down": 420,
+    "excluded_pinned": 178,
+    "expectations_verdict": "consistent_with_manifest",
+    "history_assessments": 8,
+    "integrity_findings": [],
+    "matched": 19759,
+    "moved": 545,
+    "narrative_check": "grounded",
+    "parity_verdict": "EXACT_MATCH",
+    "preview_moved": 549,
+    "register": "intact",
+    "sql_parity_identical": true,
+    "up": 125
+  },
+  "parties": 20000,
+  "seed": 11
+}

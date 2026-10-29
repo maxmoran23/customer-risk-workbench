@@ -1,0 +1,174 @@
+{
+  "description": "Illustrative atomic and compound rules. Floors set a minimum tier; routes request review without changing the tier.",
+  "rules": [
+    {
+      "condition": {
+        "attribute": "nature_of_business",
+        "in": [
+          "money_services_business",
+          "precious_metals_dealer"
+        ]
+      },
+      "effect": {
+        "tier": "HIGH",
+        "type": "floor"
+      },
+      "evidence": [
+        "FFIEC-NBFI",
+        "CFR-1027"
+      ],
+      "id": "ATOM-01",
+      "rationale": "Business types with dedicated AML program obligations receive at least HIGH regardless of other attributes.",
+      "status": "proposed",
+      "title": "Regulated value-transfer or high-value-goods business"
+    },
+    {
+      "condition": {
+        "attribute": "jurisdiction_exposure",
+        "in": [
+          "elevated_risk"
+        ]
+      },
+      "effect": {
+        "tier": "HIGH",
+        "type": "floor"
+      },
+      "evidence": [
+        "FATF-RBA-BANK"
+      ],
+      "id": "ATOM-02",
+      "rationale": "Geographic exposure in the adopter's elevated band sets a HIGH minimum.",
+      "status": "proposed",
+      "title": "Elevated-risk jurisdiction band"
+    },
+    {
+      "condition": {
+        "all": [
+          {
+            "attribute": "entity_type",
+            "in": [
+              "financial_institution_nonbank"
+            ]
+          },
+          {
+            "attribute": "source_of_funds",
+            "in": [
+              "third_party_unrelated",
+              "unverified"
+            ]
+          },
+          {
+            "attribute": "listed_status",
+            "in": [
+              "unlisted_unregulated_structure"
+            ]
+          }
+        ]
+      },
+      "effect": {
+        "tier": "VERY_HIGH",
+        "type": "floor"
+      },
+      "evidence": [
+        "FFIEC-NBFI",
+        "FFIEC-BE",
+        "FATF-RBA-BANK"
+      ],
+      "id": "COMP-01",
+      "rationale": "Each leg is an elevator alone; together they leave no independent check on the origin of funds.",
+      "status": "proposed",
+      "title": "Nonbank institution with third-party or unverified funds in an unregulated structure"
+    },
+    {
+      "condition": {
+        "all": [
+          {
+            "attribute": "occupation",
+            "in": [
+              "senior_foreign_public_official"
+            ]
+          },
+          {
+            "attribute": "source_of_wealth",
+            "in": [
+              "undocumented"
+            ]
+          }
+        ]
+      },
+      "effect": {
+        "tier": "VERY_HIGH",
+        "type": "floor"
+      },
+      "evidence": [
+        "FFIEC-PEP"
+      ],
+      "id": "COMP-02",
+      "rationale": "Public-function exposure is contextual; combined with undocumented wealth it sets the top tier pending documentation.",
+      "status": "proposed",
+      "title": "Senior foreign public official with undocumented wealth"
+    },
+    {
+      "condition": {
+        "all": [
+          {
+            "attribute": "nature_of_business",
+            "in": [
+              "restaurant",
+              "convenience_store",
+              "liquor_store",
+              "vending_machine_operator",
+              "parking_garage",
+              "privately_owned_atm_operator"
+            ]
+          },
+          {
+            "attribute": "source_of_funds",
+            "in": [
+              "cash_deposit"
+            ]
+          },
+          {
+            "attribute": "account_purpose",
+            "in": [
+              "cross_border_payments"
+            ]
+          }
+        ]
+      },
+      "effect": {
+        "tier": "HIGH",
+        "type": "floor"
+      },
+      "evidence": [
+        "FFIEC-CIB",
+        "FATF-RBA-BANK"
+      ],
+      "id": "COMP-03",
+      "rationale": "Draft: support and contribution of each leg to be confirmed in the connections review.",
+      "status": "draft",
+      "title": "Cash-intensive business funding cross-border payments with cash"
+    },
+    {
+      "condition": {
+        "attribute": "account_purpose",
+        "in": [
+          "unclear_or_pass_through"
+        ]
+      },
+      "effect": {
+        "action": "Request purpose-of-account clarification; no tier change from this rule.",
+        "type": "route"
+      },
+      "evidence": [
+        "FATF-RBA-BANK"
+      ],
+      "id": "ROUTE-01",
+      "rationale": "Missing purpose is an information gap to close before it is a risk conclusion.",
+      "status": "proposed",
+      "title": "Unclear account purpose"
+    }
+  ],
+  "ruleset_id": "reference-rules",
+  "version": "1.0.0"
+}

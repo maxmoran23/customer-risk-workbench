@@ -1,0 +1,35 @@
+{
+  "config_id": "reference-party-roles",
+  "description": "Illustrative role-to-scope mapping. Influence follows the ownership and control concepts of 31 CFR 1010.230.",
+  "roles": {
+    "account_holder": "customer",
+    "attorney_in_fact": "related_with_influence",
+    "authorized_trader": "related_with_influence",
+    "beneficial_owner_ownership": "related_with_influence",
+    "contingent_beneficiary": "related_without_influence",
+    "controlling_person": "related_with_influence",
+    "duplicate_statement_recipient": "related_without_influence",
+    "joint_account_holder": "customer",
+    "settlor": "related_with_influence",
+    "transfer_on_death_beneficiary": "related_without_influence",
+    "trustee": "related_with_influence"
+  },
+  "scope_classes": [
+    {
+      "description": "Holds the relationship in its own name.",
+      "id": "customer",
+      "rated": true
+    },
+    {
+      "description": "Can own, control or direct the relationship (for example ownership or control prong, trustee, attorney-in-fact).",
+      "id": "related_with_influence",
+      "rated": true
+    },
+    {
+      "description": "Connected but cannot direct the relationship (for example contingent beneficiary, notification party).",
+      "id": "related_without_influence",
+      "rated": false
+    }
+  ],
+  "version": "1.0.0"
+}

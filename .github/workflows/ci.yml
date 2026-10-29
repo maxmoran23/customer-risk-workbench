@@ -24,8 +24,12 @@ jobs:
       - run: python -m pytest --cov=crw --cov-report=term-missing
       - run: python -m crw scenarios --out runs/scenarios.json
       - run: python scripts/build_scenario_catalog.py --check
+      - run: python scripts/build_program_configs.py --check
+      - run: python examples/build_program_examples.py --check
+      - run: python scripts/public_boundary_check.py
       - run: python scripts/check_numerics.py --out runs/numerical-crosscheck.json
       - run: python examples/walkthrough.py --out runs/example-walkthrough.json
       - run: python -m crw demo --customers 120 --transactions 80 --research --research-rows 1000 --out runs/ci-demo
+      - run: python -m crw program-demo --parties 5000 --out runs/ci-program-demo
       - run: python -m build
       - run: python scripts/check_wheel.py --out runs/wheel-check.json

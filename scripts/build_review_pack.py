@@ -56,6 +56,25 @@ PACKS = {
         "CONTRIBUTING.md",
         "SECURITY.md",
     ],
+    "09-attribute-review-program.md": [
+        "docs/program-sequencing.md",
+        "docs/attribute-review-playbook.md",
+        "docs/connections-method.md",
+        "docs/rule-design.md",
+        "templates/attribute-review-sheet.md",
+        "templates/connections-review.md",
+        "templates/rule-specification.md",
+        "templates/value-reclassification-request.md",
+    ],
+    "10-impact-assessment-program.md": [
+        "docs/impact-assessment-playbook.md",
+        "docs/impact-automation-architecture.md",
+        "docs/ai-workflows.md",
+        "templates/change-manifest.md",
+        "templates/impact-assessment-report.md",
+        "templates/parity-test-plan.md",
+        "prompts/README.md",
+    ],
 }
 
 

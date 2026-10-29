@@ -1,0 +1,982 @@
+{
+  "attributes": [
+    {
+      "applies_to": [
+        "all"
+      ],
+      "category": "customer",
+      "definition": "Legal form of the party as resolved by entity segmentation.",
+      "id": "entity_type",
+      "label": "Entity type",
+      "missing": "review",
+      "values": [
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "individual",
+          "label": "Natural person",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "sole_proprietor",
+          "label": "Sole proprietor",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "private_company",
+          "label": "Private operating company",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "public_company",
+          "label": "Publicly traded company",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FFIEC-TRUST"
+          ],
+          "id": "trust",
+          "label": "Trust",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 65
+          },
+          "evidence": [
+            "FFIEC-BE",
+            "CFR-1010-230"
+          ],
+          "id": "investment_vehicle",
+          "label": "Private investment vehicle",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "mitigator",
+            "score": 40
+          },
+          "evidence": [
+            "POLICY-ILLUSTRATIVE"
+          ],
+          "id": "financial_institution_regulated",
+          "label": "Regulated financial institution",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FFIEC-NBFI"
+          ],
+          "id": "financial_institution_nonbank",
+          "label": "Nonbank financial institution",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "override_low",
+            "score": null
+          },
+          "evidence": [
+            "CFR-1010-230"
+          ],
+          "id": "government_entity",
+          "label": "Domestic governmental entity",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "sole_proprietor",
+        "private_company",
+        "public_company",
+        "investment_vehicle",
+        "financial_institution_regulated",
+        "financial_institution_nonbank"
+      ],
+      "category": "customer",
+      "definition": "Primary business activity of a non-individual party, normalized to a controlled list.",
+      "id": "nature_of_business",
+      "label": "Nature of business",
+      "missing": "review",
+      "values": [
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "general_retail",
+          "label": "General retail",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "manufacturing",
+          "label": "Manufacturing",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "professional_services",
+          "label": "Professional services",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FFIEC-PSP"
+          ],
+          "id": "legal_accounting_intermediary",
+          "label": "Legal or accounting intermediary",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "restaurant",
+          "label": "Restaurant",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "convenience_store",
+          "label": "Convenience store",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "liquor_store",
+          "label": "Liquor store",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 65
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "vending_machine_operator",
+          "label": "Vending machine operator",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "parking_garage",
+          "label": "Parking garage",
+          "proposed": {
+            "class": "elevator",
+            "score": 60
+          },
+          "rationale": "Listed among common cash-intensive examples; currently unscored. Proposal aligns it with comparable cash businesses.",
+          "status": "proposed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 75
+          },
+          "evidence": [
+            "FFIEC-CIB",
+            "POLICY-ILLUSTRATIVE"
+          ],
+          "id": "privately_owned_atm_operator",
+          "label": "Privately owned ATM operator",
+          "proposed": {
+            "class": "override_high",
+            "score": null
+          },
+          "rationale": "Illustrative escalation to a trigger: cash replenishment source is hard to verify. Requires policy-owner agreement.",
+          "status": "proposed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "CFR-1027"
+          ],
+          "id": "precious_metals_dealer",
+          "label": "Dealer in precious metals, stones or jewels",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FFIEC-NBFI"
+          ],
+          "id": "money_services_business",
+          "label": "Registered money services business",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "override_high",
+            "score": null
+          },
+          "evidence": [
+            "CFR-1022-380"
+          ],
+          "id": "unregistered_money_transmission",
+          "label": "Money transmission without required registration",
+          "proposed": null,
+          "rationale": "",
+          "status": "deferred"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "import_export_trading",
+          "label": "Import and export trading",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": null,
+          "evidence": [],
+          "id": "online_marketplace_seller",
+          "label": "Online marketplace seller",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "individual",
+        "sole_proprietor"
+      ],
+      "category": "customer",
+      "definition": "Occupation of an individual or sole proprietor, normalized to a controlled list.",
+      "id": "occupation",
+      "label": "Occupation",
+      "missing": "neutral",
+      "values": [
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "salaried_employee",
+          "label": "Salaried employee",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "mitigator",
+            "score": 45
+          },
+          "evidence": [
+            "POLICY-ILLUSTRATIVE"
+          ],
+          "id": "retired",
+          "label": "Retired",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "student",
+          "label": "Student",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "not_employed",
+          "label": "Not employed",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "self_employed_professional",
+          "label": "Self-employed professional",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "cash_based_self_employment",
+          "label": "Cash-based self-employment",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 65
+          },
+          "evidence": [
+            "FFIEC-PEP"
+          ],
+          "id": "senior_foreign_public_official",
+          "label": "Senior foreign public official",
+          "proposed": null,
+          "rationale": "Contextual elevator only. The cited section states no customer type automatically presents higher risk.",
+          "status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "private_company",
+        "public_company",
+        "investment_vehicle",
+        "financial_institution_regulated",
+        "financial_institution_nonbank"
+      ],
+      "category": "customer",
+      "definition": "Whether a legal entity or its parent is listed on a regulated exchange.",
+      "id": "listed_status",
+      "label": "Listed status",
+      "missing": "review",
+      "values": [
+        {
+          "current": {
+            "class": "mitigator",
+            "score": 35
+          },
+          "evidence": [
+            "CFR-1010-230"
+          ],
+          "id": "listed_regulated_exchange",
+          "label": "Listed on a regulated exchange",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "mitigator",
+            "score": 40
+          },
+          "evidence": [
+            "CFR-1010-230"
+          ],
+          "id": "subsidiary_of_listed",
+          "label": "Majority-owned subsidiary of a listed company",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "unlisted_private",
+          "label": "Unlisted private entity",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 65
+          },
+          "evidence": [
+            "FFIEC-BE"
+          ],
+          "id": "unlisted_unregulated_structure",
+          "label": "Unlisted, unregulated holding structure",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "all"
+      ],
+      "category": "funds",
+      "definition": "Origin of the party's overall wealth as declared and corroborated at onboarding or refresh.",
+      "id": "source_of_wealth",
+      "label": "Source of wealth",
+      "missing": "review",
+      "values": [
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "employment_income",
+          "label": "Employment income",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "business_ownership",
+          "label": "Business ownership",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "inheritance_or_gift",
+          "label": "Inheritance or gift",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "investment_returns",
+          "label": "Investment returns",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "sale_of_business_or_property",
+          "label": "Sale of business or property",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "undocumented",
+          "label": "Undocumented",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "all"
+      ],
+      "category": "funds",
+      "definition": "Origin of the funds used in the relationship.",
+      "id": "source_of_funds",
+      "label": "Source of funds",
+      "missing": "review",
+      "values": [
+        {
+          "current": {
+            "class": "mitigator",
+            "score": 45
+          },
+          "evidence": [
+            "POLICY-ILLUSTRATIVE"
+          ],
+          "id": "own_account_same_institution",
+          "label": "Own account at the same institution",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "external_bank_transfer",
+          "label": "Transfer from an external bank account",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "payroll",
+          "label": "Payroll",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FFIEC-CIB"
+          ],
+          "id": "cash_deposit",
+          "label": "Cash deposit",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 65
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "third_party_unrelated",
+          "label": "Unrelated third party",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "POLICY-ILLUSTRATIVE"
+          ],
+          "id": "virtual_asset_service_provider",
+          "label": "Virtual asset service provider",
+          "proposed": {
+            "class": "neutral",
+            "score": 50
+          },
+          "rationale": "Proposed de-escalation when the provider is registered and transfer originator data is available; challenged pending policy evidence.",
+          "status": "challenged"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "unverified",
+          "label": "Unverified",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "all"
+      ],
+      "category": "geography",
+      "definition": "Highest-risk jurisdiction band connected to residence, incorporation or operations. Band membership is adopter-defined.",
+      "id": "jurisdiction_exposure",
+      "label": "Jurisdiction exposure",
+      "missing": "review",
+      "values": [
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "domestic_only",
+          "label": "Domestic only",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "standard_international",
+          "label": "Standard international",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "elevated_risk",
+          "label": "Elevated-risk jurisdiction band",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "override_high",
+            "score": null
+          },
+          "evidence": [
+            "OFAC-PROGRAMS"
+          ],
+          "id": "comprehensively_sanctioned",
+          "label": "Comprehensively sanctioned jurisdiction",
+          "proposed": null,
+          "rationale": "Risk-rating consequence only. Screening, blocking and reporting obligations are handled by a separate workflow.",
+          "status": "deferred"
+        }
+      ]
+    },
+    {
+      "applies_to": [
+        "all"
+      ],
+      "category": "product",
+      "definition": "Declared purpose and intended use of the relationship.",
+      "id": "account_purpose",
+      "label": "Account purpose",
+      "missing": "neutral",
+      "values": [
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "long_term_investment",
+          "label": "Long-term investment",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "neutral",
+            "score": 50
+          },
+          "evidence": [],
+          "id": "operating_or_payroll",
+          "label": "Operating or payroll",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 60
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "cross_border_payments",
+          "label": "Frequent cross-border payments",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        },
+        {
+          "current": {
+            "class": "elevator",
+            "score": 70
+          },
+          "evidence": [
+            "FATF-RBA-BANK"
+          ],
+          "id": "unclear_or_pass_through",
+          "label": "Unclear or pass-through",
+          "proposed": null,
+          "rationale": "",
+          "status": "unreviewed"
+        }
+      ]
+    }
+  ],
+  "catalog_id": "reference-attribute-catalog",
+  "description": "Illustrative categorical attribute catalog for synthetic research. Classes and scores are assumptions, not sourced prescriptions.",
+  "entity_types": [
+    "individual",
+    "sole_proprietor",
+    "private_company",
+    "public_company",
+    "trust",
+    "investment_vehicle",
+    "financial_institution_regulated",
+    "financial_institution_nonbank",
+    "government_entity"
+  ],
+  "evidence": [
+    {
+      "id": "FFIEC-CIB",
+      "issuer": "FFIEC",
+      "kind": "supervisory_guidance",
+      "locator": "Overview section; lists common examples and risk factors",
+      "public": true,
+      "title": "FFIEC BSA/AML Examination Manual: Cash-Intensive Businesses",
+      "url": "https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/26"
+    },
+    {
+      "id": "FFIEC-NBFI",
+      "issuer": "FFIEC",
+      "kind": "supervisory_guidance",
+      "locator": "Overview section",
+      "public": true,
+      "title": "FFIEC BSA/AML Examination Manual: Nonbank Financial Institutions",
+      "url": "https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/22"
+    },
+    {
+      "id": "FFIEC-PEP",
+      "issuer": "FFIEC",
+      "kind": "supervisory_guidance",
+      "locator": "Overview section; states no customer type automatically presents higher risk",
+      "public": true,
+      "title": "FFIEC BSA/AML Examination Manual: Politically Exposed Persons",
+      "url": "https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/20"
+    },
+    {
+      "id": "FFIEC-TRUST",
+      "issuer": "FFIEC",
+      "kind": "supervisory_guidance",
+      "locator": "Overview section",
+      "public": true,
+      "title": "FFIEC BSA/AML Examination Manual: Trust and Asset Management Services",
+      "url": "https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/18"
+    },
+    {
+      "id": "FFIEC-PSP",
+      "issuer": "FFIEC",
+      "kind": "supervisory_guidance",
+      "locator": "Overview section",
+      "public": true,
+      "title": "FFIEC BSA/AML Examination Manual: Professional Service Providers",
+      "url": "https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/23"
+    },
+    {
+      "id": "FFIEC-BE",
+      "issuer": "FFIEC",
+      "kind": "supervisory_guidance",
+      "locator": "Overview section",
+      "public": true,
+      "title": "FFIEC BSA/AML Examination Manual: Business Entities (Domestic and Foreign)",
+      "url": "https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/25"
+    },
+    {
+      "id": "CFR-1010-230",
+      "issuer": "FinCEN",
+      "kind": "regulation",
+      "locator": "Definitions and exclusions, including listed companies and governmental entities",
+      "public": true,
+      "title": "31 CFR 1010.230: Beneficial ownership requirements for legal entity customers",
+      "url": "https://www.ecfr.gov/current/title-31/section-1010.230"
+    },
+    {
+      "id": "CFR-1022-380",
+      "issuer": "FinCEN",
+      "kind": "regulation",
+      "locator": "Registration requirement",
+      "public": true,
+      "title": "31 CFR 1022.380: Registration of money services businesses",
+      "url": "https://www.ecfr.gov/current/title-31/section-1022.380"
+    },
+    {
+      "id": "CFR-1027",
+      "issuer": "FinCEN",
+      "kind": "regulation",
+      "locator": "AML program requirement for covered dealers",
+      "public": true,
+      "title": "31 CFR Part 1027: Dealers in precious metals, precious stones, or jewels",
+      "url": "https://www.ecfr.gov/current/title-31/part-1027"
+    },
+    {
+      "id": "FATF-RBA-BANK",
+      "issuer": "FATF",
+      "kind": "industry_guidance",
+      "locator": "Customer, geographic and product/service risk factors",
+      "public": true,
+      "title": "FATF Guidance for a Risk-Based Approach: The Banking Sector",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Risk-based-approach-banking-sector.html"
+    },
+    {
+      "id": "OFAC-PROGRAMS",
+      "issuer": "U.S. Treasury OFAC",
+      "kind": "regulation",
+      "locator": "Program index; screening and blocking obligations sit outside risk rating",
+      "public": true,
+      "title": "OFAC Sanctions Programs and Country Information",
+      "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information"
+    },
+    {
+      "id": "POLICY-ILLUSTRATIVE",
+      "issuer": "Adopter (placeholder)",
+      "kind": "internal_policy",
+      "locator": "Replace with the adopter's approved policy reference before any use",
+      "public": true,
+      "title": "Illustrative adopter policy statement (synthetic placeholder)"
+    }
+  ],
+  "scale": {
+    "maximum": 100,
+    "minimum": 0,
+    "neutral": 50
+  },
+  "version": "1.0.0"
+}

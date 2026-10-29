@@ -1,0 +1,15 @@
+{
+  "assessment_id": "IA-EXAMPLE-01",
+  "description": "Ten-party hand-checkable example: two up, one down, one pinned exclusion, one exit, one entrant.",
+  "exclude_pinned": true,
+  "post_label": "example after",
+  "pre_label": "example before",
+  "segments": {
+    "SEGMENT_A": {
+      "mode": "paired"
+    },
+    "SEGMENT_B": {
+      "mode": "paired"
+    }
+  }
+}

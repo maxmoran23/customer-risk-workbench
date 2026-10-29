@@ -8,6 +8,12 @@
     "pip"
   ],
   "limit": "Core package smoke check; browser behavior and optional research dependencies are checked separately.",
+  "program_demo": {
+    "narrative_check": "grounded",
+    "parity": "EXACT_MATCH",
+    "parties": 2000,
+    "sql_parity_identical": true
+  },
   "python": "3.12.14",
   "scenario_results": {
     "failed": 0,
@@ -17,6 +23,6 @@
   "standalone_html_written": true,
   "status": "passed",
   "transactions": 960,
-  "wheel": "customer_risk_workbench-0.1.0-py3-none-any.whl",
-  "wheel_sha256": "406b774517d97cadf2fc8033e4ec36a92ce43034c620c3cf135389d4f2c07cd7"
+  "wheel": "customer_risk_workbench-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "588693e0e0fd4f6015785665ace39fecc56184e245523c819b1d3f9f5bbf993c"
 }

@@ -16,10 +16,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--wheel", default="dist/customer_risk_workbench-0.1.0-py3-none-any.whl")
+    parser.add_argument("--wheel", help="Wheel path; default is the single wheel in dist/ for the current version")
     parser.add_argument("--out", default="evidence/wheel-check.json")
     args = parser.parse_args()
-    wheel = Path(args.wheel).resolve()
+    if args.wheel:
+        wheel = Path(args.wheel).resolve()
+    else:
+        found = sorted((ROOT / "dist").glob("customer_risk_workbench-*-py3-none-any.whl"))
+        if len(found) != 1:
+            raise SystemExit(f"expected exactly one wheel in dist/, found {len(found)}")
+        wheel = found[0]
     environment = dict(os.environ)
     environment.pop("PYTHONPATH", None)
     with tempfile.TemporaryDirectory(prefix="crw-wheel-verification-") as folder:
@@ -52,6 +58,9 @@ def main():
         report = json.loads((temporary / "demo/demo-report.json").read_text(encoding="utf-8"))
         html = (temporary / "demo/workbench.html").read_text(encoding="utf-8")
         assert '<script id="workbench-data"' in html and "__REPORT_JSON__" not in html
+        program = json.loads(run("-m", "crw", "program-demo", "--parties", "2000", "--out", "program"))
+        assert program["impact"]["sql_parity_identical"] and program["impact"]["parity_verdict"] == "EXACT_MATCH"
+        assert program["impact"]["narrative_check"] == "grounded"
         result = {
             "status": "passed",
             "wheel": wheel.name,
@@ -65,6 +74,9 @@ def main():
             "scenario_results": output["scenarios"],
             "chunk_replay_identical": output["replay_identical"],
             "standalone_html_written": True,
+            "program_demo": {"parties": program["parties"], "parity": program["impact"]["parity_verdict"],
+                             "sql_parity_identical": program["impact"]["sql_parity_identical"],
+                             "narrative_check": program["impact"]["narrative_check"]},
             "limit": "Core package smoke check; browser behavior and optional research dependencies are checked separately.",
         }
     target = Path(args.out)

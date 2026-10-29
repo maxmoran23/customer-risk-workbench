@@ -1,18 +1,20 @@
-# Verification dossier — research release 0.1.0
+# Verification dossier — research release 0.2.0
 
-**Observed on October 28, 2026.** This dossier reports reproducible software behavior on synthetic fixtures. It is not institutional independent model validation, certification, or evidence of effectiveness on real financial-crime outcomes. Machine-readable counts, versions and scope are retained in [verification.json](../evidence/verification.json); file hashes are in the [release manifest](../evidence/source-manifest.json).
+**Observed on October 29, 2026** (0.1.0 core evidence observed October 28, 2026 and retained where the core is unchanged). This dossier reports reproducible software behavior on synthetic fixtures. It is not institutional independent model validation, certification, or evidence of effectiveness on real financial-crime outcomes. Machine-readable counts, versions and scope are retained in [verification.json](../evidence/verification.json); file hashes are in the [release manifest](../evidence/source-manifest.json).
 
 ## Executed evidence
 
 | Check | Observed result | Scope and reproducible source |
 | --- | --- | --- |
-| Automated suite | 230 passed; zero failures, errors or skips | Python contracts, arithmetic, temporal behavior, research, real SQLite, review history, renderer escaping and JavaScript helper checks; `python -m pytest` |
-| Statement coverage | 2,022 / 2,265 statements, 89.3% | Python statement coverage only; excludes manual demonstration execution; rendering a template is not complete browser coverage |
+| Automated suite | 296 passed; zero failures, errors or skips | Core contracts, arithmetic, temporal behavior, research, real SQLite, review history, renderer escaping and JavaScript helper checks, plus program-kit catalog, connections, rules, gates, impact engine, SQL parity, register, report layout and narrative-guard tests; `python -m pytest` |
+| Statement coverage | 4,167 / 4,653 statements, 89.6% | Python statement coverage only; excludes manual demonstration execution; rendering a template is not complete browser coverage |
 | Named executable cases | 96 / 96 passed | [Expected/observed case results](../evidence/scenario-results.json); this is partly overlapping evidence with parameterized tests, not 326 independent validations |
 | Demonstration | 1,000 customers; 80,000 transactions; two chunk sizes give identical assessments | Real SQLite; [retained summary](../evidence/demo-summary.json) and [standalone viewer](../web/workbench.html) |
 | Numerical cross-check | 785 finite comparisons over 100 seeded cases; 15 explicit undefined checks | scikit-learn/SciPy reference results; maximum absolute discrepancy `1.454392162258955e-14`, below `1e-12`; [evidence](../evidence/numerical-crosscheck.json) |
 | Research | 12 refitted experiments, each using 3,000 synthetic customers; three seeds | Four regimes per seed; 36 paired fixed-model stress comparisons across nine model/seed combinations; [full results](../evidence/research.json) |
 | Installed package | Fresh wheel installation, no optional dependencies, outside source checkout | 12 customers / 960 transactions; 96 cases; identical chunk replay; HTML written; [wheel evidence](../evidence/wheel-check.json) |
+| Attribute-review program | 56 catalog values; 694 value pairs screened, 513 tested with false-discovery control; planted synthetic synergy graded `supported_synergy`, planted null `not_supported` | 20,000 synthetic parties, seed 11; normalization audit `blocking_issues` by design (injected defects); [summary](../evidence/program-demo-summary.json) |
+| Impact-assessment program | 19,759 matched parties, 545 moved; manifest forecast from a separate design-time sample: `consistent_with_manifest`; engine versus SQLite-executed SQL: `EXACT_MATCH`; narrative draft `grounded`; register `intact` | 8 synthetic prior assessments, 10 historical flags; [summary](../evidence/program-demo-summary.json), [rendered report](../web/impact-assessment-example.html) |
 | Portable walkthrough | Three customers / 240 transactions; expected scores 15.75, 48.40 and 82.80 | Hand-reconciled group contributions, missing-evidence abstention and replay; [worked example](example-walkthrough.md) |
 | Desktop interface | Selected Safari interactions observed | Overview, customer search/selection, stress null-score/bounds details, threshold control and research/frozen-model views; not exhaustive accessibility or browser coverage |
 
@@ -40,7 +42,23 @@ In the base seed-7 logistic model, 132 of 630 synthetic holdout observations exc
 
 The experiment is useful because it separates a changed input from a retrained model. Whether this failure represents a real operational concern depends on source coverage, model use, outcomes, controls and approved-environment evaluation. [Exact paired outputs and integrity hashes](../evidence/research.json).
 
-## Review findings closed before release
+## Review findings closed before release (0.2.0)
+
+An AI-assisted adversarial review of the program kits (statistics recomputed independently: interaction odds ratio and Woolf error, Benjamini-Hochberg, bias-corrected Cramer's V, Wilson interval and modified z all matched to floating-point precision) produced these fixes, each with a regression test:
+
+1. Override classes on attributes absent from model weights were ignored; they now act regardless of weight.
+2. The narrative guard accepted shorthand (1.2k, 3x), negatives, ranges, ratios, spelled-out quantities and counts quoted as percentages; all are now rejected, and required facts match whole quantities only.
+3. Floating-point error could demote a score equal to a tier minimum; scores are rounded to nine decimals before banding.
+4. Tier codes could shadow tier labels and transpose a matrix; codes must now be disjoint from labels.
+5. Expectation reconciliation ignored aggregate-only segments, entrants and exits; each now needs a declaration or is reported as unexplained.
+6. Parity reported false mismatches for empty segments and truncated fractional counts; segments compare by populated cells and counts must be integers.
+7. Generated SQL dropped text-typed pin flags and double-counted duplicate identifiers; pins are cast to integers and a `checks` statement reports duplicates and invalid pins.
+8. Negation over a not-applicable attribute fired for every party of that entity type; a NOT_APPLICABLE state now propagates through negation.
+9. Malformed inputs raised raw Python exceptions; they now raise contract errors or exit cleanly from the command line.
+10. Register timestamps were unvalidated and truncation was undetectable; timestamps must be timezone-aware and an external anchor detects truncation.
+11. The demonstration manifest was derived from the assessed population itself; it is now forecast from a separately drawn sample.
+
+## Review findings closed before release (0.1.0)
 
 AI-assisted adversarial and compliance reviews produced concrete fixes:
 
@@ -66,6 +84,9 @@ python -m crw benchmark --customers 100000 --transactions 10 --out runs/benchmar
 python scripts/benchmark_storage.py --out runs/benchmark-sqlite.json
 python -m build
 python scripts/check_wheel.py --out runs/wheel-check.json
+python -m crw program-demo --out runs/program-demo
+python scripts/build_program_configs.py --check
+python examples/build_program_examples.py --check
 python scripts/public_boundary_check.py
 python scripts/source_manifest.py --check
 ```

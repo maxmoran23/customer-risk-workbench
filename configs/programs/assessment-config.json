@@ -1,0 +1,30 @@
+{
+  "assessment_id": "IA-DEMO-001",
+  "description": "Synthetic demonstration: apply proposed value classifications from the attribute review.",
+  "exclude_pinned": true,
+  "post_label": "test environment, after release",
+  "pre_label": "test environment, before release",
+  "segments": {
+    "SEGMENT_A": {
+      "description": "Synthetic business segment A",
+      "mode": "paired"
+    },
+    "SEGMENT_B": {
+      "description": "Synthetic business segment B",
+      "mode": "paired"
+    },
+    "SEGMENT_C": {
+      "description": "Synthetic business segment C",
+      "mode": "paired"
+    },
+    "SEGMENT_D": {
+      "description": "Synthetic business segment D",
+      "mode": "paired"
+    },
+    "SEGMENT_E": {
+      "description": "Synthetic segment too large to snapshot row by row; aggregates only.",
+      "mode": "aggregate_only"
+    }
+  },
+  "unknown_segments": "error"
+}

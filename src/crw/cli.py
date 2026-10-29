@@ -24,6 +24,7 @@ from .storage import Store
 from .stress import stress_portfolio
 from .synthetic import generate_portfolio, iter_portfolio, DEFAULT_AS_OF
 from .scenarios import run_scenarios, scenario_catalog
+from .cli_programs import register as register_programs
 
 
 def _policy(args):
@@ -287,6 +288,7 @@ def main(argv=None):
     p = subs.add_parser("catalog", help="Export reference policy, JSON Schemas, feature and pattern catalogs")
     p.add_argument("--out", default="runs/catalog")
     p.set_defaults(func=_catalog)
+    register_programs(subs)
     args = parser.parse_args(argv)
     try:
         if hasattr(args, "customers") and isinstance(args.customers, int) and args.customers < 1:
@@ -296,6 +298,8 @@ def main(argv=None):
         return 0
     except (ValueError, OSError, ImportError, sqlite3.Error) as exc:
         parser.exit(2, f"crw: {exc}\n")
+    except (TypeError, KeyError, AttributeError) as exc:
+        parser.exit(2, f"crw: malformed input ({type(exc).__name__}: {exc}); check the file against the documented contract\n")
 
 
 def _save_scenarios(args):

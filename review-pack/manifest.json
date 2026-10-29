@@ -2,8 +2,8 @@
   "format": "public review attachments",
   "packs": {
     "01-start-here.md": {
-      "bytes": 24474,
-      "sha256": "e48842c2381d4fcf8a4e99d8f0bdc849bb8cc2cb6bc1f16358fb4616b7e37ebf",
+      "bytes": 30278,
+      "sha256": "dbe178aed138ff4ef79076aeefc4ddbb9096a034c50285c1ebe1d4aa8f537d78",
       "sources": [
         "README.md",
         "docs/reviewer-guide.md",
@@ -11,8 +11,8 @@
       ]
     },
     "02-data-and-implementation.md": {
-      "bytes": 31256,
-      "sha256": "dce0c289444251a9d09ca3a503bfa4d6339d8c1f1daa5c3a877f67f735f1d477",
+      "bytes": 33074,
+      "sha256": "15e0d26e01b317cfaf8fdb82e23a2b1289b02fda75890c4674d092cefe9d8403",
       "sources": [
         "docs/architecture.md",
         "docs/data-contract.md",
@@ -73,49 +73,91 @@
       ]
     },
     "08-evidence-and-reproduction.md": {
-      "bytes": 19623,
-      "sha256": "eff1de6f5c2995a76b683cf8b22281003e650808b6c8ed88b57804a06d8855af",
+      "bytes": 22854,
+      "sha256": "1ce42a59f8dfa0bb1bef58d43e0f08d52f2d391de79a4aaf3012d2a7e686f7f9",
       "sources": [
         "docs/verification.md",
         "docs/provenance.md",
         "CONTRIBUTING.md",
         "SECURITY.md"
       ]
+    },
+    "09-attribute-review-program.md": {
+      "bytes": 80298,
+      "sha256": "0b76304795abd17f52f599eb18325ad08a3c4cf9219114bb16ed6db9d2468819",
+      "sources": [
+        "docs/program-sequencing.md",
+        "docs/attribute-review-playbook.md",
+        "docs/connections-method.md",
+        "docs/rule-design.md",
+        "templates/attribute-review-sheet.md",
+        "templates/connections-review.md",
+        "templates/rule-specification.md",
+        "templates/value-reclassification-request.md"
+      ]
+    },
+    "10-impact-assessment-program.md": {
+      "bytes": 73174,
+      "sha256": "59a9780d371c37178d462969c0069d9315726106244948d2dbe94dc3ba905ddb",
+      "sources": [
+        "docs/impact-assessment-playbook.md",
+        "docs/impact-automation-architecture.md",
+        "docs/ai-workflows.md",
+        "templates/change-manifest.md",
+        "templates/impact-assessment-report.md",
+        "templates/parity-test-plan.md",
+        "prompts/README.md"
+      ]
     }
   },
   "source_files": {
     "CONTRIBUTING.md": "9ae2fedff60febd8593f86f0592e0359f67c986fd07bfff9385f7e683ff6f2f1",
-    "README.md": "9d3c6b21e8d53606079f64e541422ad362ceae2d6f51d5ca75c2349f5072797a",
+    "README.md": "953512da043aa276740b81cf5bb1068fe50e7f1f42233d67129bed66d9428670",
     "SECURITY.md": "9f4e324f6c8681263f8e9211eaf4ca5bf57b0cd0d03537cdf5afa044da7f473e",
     "docs/adoption-guide.md": "8f9a7658a1c751985eab169b906cb8eb279c289320a912cf454bf41bfb9ebd8b",
     "docs/ai-assistance.md": "a2f543361c795ce9d10efc2982bc64139c534b56400ef892a92bfba373667549",
-    "docs/architecture.md": "b64b755745dd1bce72f0de7fabd2c069392dee1db49c0b0f945be3bd0033576f",
+    "docs/ai-workflows.md": "6b20a324c3b830b66040e699c018d048a941f50bbbd64dad0385acb4220ba6c7",
+    "docs/architecture.md": "b92d9a3c4d0e649b1b9b98e51c88814cf147bfa89bf2040efb60b70c7c7e66e4",
+    "docs/attribute-review-playbook.md": "66178c2b087600a385f2a595bda116bbd05fb87a051023a26488d9ee125310c2",
+    "docs/connections-method.md": "5e81c1debbd11e3c9eaf7a105c10cc41a3e6bacaad17dcdf27d252e846ee44cc",
     "docs/data-contract.md": "bd31fc17daff124468431ce1a6b465013bd7abca56f263eb022f1a94f5d1b6fb",
     "docs/example-walkthrough.md": "100c99237399da87983127cae9201208f32c30cf18287de56634362cda372572",
     "docs/governance.md": "9861866ed0ef5db367fade7ee26458864e20c67d4d0cfcca85fd98d4b3df3a98",
+    "docs/impact-assessment-playbook.md": "8040471b3b56e028331fdd6437d0802205fac94e2da3dff16244b9da6c9763f8",
+    "docs/impact-automation-architecture.md": "f1eef001c676094339348e12f18c1b99f1b09045eb5d688d02c0157f710ffd36",
     "docs/limitations.md": "e86fbbe80dbce1943895c54115c7e31e19d3b811946bf53b8156654166857def",
     "docs/model-development.md": "314469fd9bd8415498a687b392d39d1cab970e8634385a2e9eb2b40bfa8c789d",
     "docs/model-validation.md": "61b16ab571b802d0c3e35409c27e3d97c48eba1c73ac1925ce4f6fc20479b327",
     "docs/operations.md": "a014dea9b5d19ceb3a2867909d8ecafeeb3f1e60e5a87a1f0a16c04b8f6469b5",
+    "docs/program-sequencing.md": "f3f648afe796d8bc73cd11cc422992e612260588f8da91d9c60d750644b197f0",
     "docs/provenance.md": "14f54f1beae91370f1959e5833342d89791b6bf2c63774d9020df07ff7ed48fc",
     "docs/regulatory-map.md": "67d8c1733a0a1b8d03bc705f8be405899a80fa70f96085f4bd5831759ae2f11b",
     "docs/reviewer-guide.md": "57870f687a22498885f2cc5a13cccc3ca89a446377f742607cbf281a9c3ca698",
+    "docs/rule-design.md": "81be0e817d954fb614118f9a89936ca8aad90bbf8977b65a22348d4457be34fb",
     "docs/scenario-design.md": "7037c39b27557773219e2c4841dee1e636e8b5114d43e6d79d9fe5ba8da5c1dc",
     "docs/scoring-method.md": "e5ce739aec8822b9f3f991385c95d715e70d7b97c911608181a3d473e2b81bc6",
     "docs/statistical-methods.md": "63c257bee6770930569f7441ef47490f57621cf37dfad6db22293d641c3de6d0",
     "docs/typology-atlas.md": "456b976f14193271952e581ebaa3dccee8f7cb89adf3c6742b10409905ae9389",
-    "docs/verification.md": "c13f0683d32f98216aaa698eb6b9d3fe97737e22f6e1ef7e191a58d0bce4d63e",
+    "docs/verification.md": "ad201f3ef123c58f4d197d43fab38a3101c9b1e84761356a7ce794425618ef9d",
+    "prompts/README.md": "9a062450575ee82e8a27620f9dc25b1c678d14505283443e131a266387d3a3a7",
     "templates/adoption-decision.md": "6b6478d2c8e9cc4cc950b4975b6cc3be3c6e1d5d7374579b4f7160b6490c7412",
+    "templates/attribute-review-sheet.md": "88db23fe5822c39027cda6dc930f49cda46ceb37539c95077b556d2b8138b902",
+    "templates/change-manifest.md": "01fb6b2b9061a44e221ddc7ad0b10125eeb09499483111dbdd769cde9f113be4",
     "templates/component-classification.md": "12e0274831eb4212e55011215e9fd66e7fabb6993567b570c343ac8b60579947",
+    "templates/connections-review.md": "5e8f9b486c3374da8e17af6db9e1101df85f73c421974577d49f467351428bbf",
     "templates/data-adapter-review.md": "b50407e0342dcf2fb47228a984a40f9c3b45b2166476ecedf109016a5e7d8aaf",
     "templates/decision-exception.md": "a057aa8687ae28c49efb6071cd025fea5e71857dbcb93a82ca353d15dba8e78e",
     "templates/development-experiment.md": "6942fe11b43aae90409e038e9bed63684b3d3301bef3743efb6c214eee53053e",
     "templates/findings-and-issues.md": "ae1147f7cb283967a06f3c4f1293ae588f391cfd184c87af4f6b9e88987cc136",
+    "templates/impact-assessment-report.md": "4d9e3bf99d66a350a33358e94bfa6229f526ef1604aeb89c865e7852af50ad59",
     "templates/model-card.md": "b2b950848a477d9d971c0ca31f9062bb4fe40fa2f4d706b424e2daf6e4711f75",
     "templates/monitoring-and-incident.md": "a29171642f99be528becb6eeec6ee8151a4a940e1a576dedd74478540ff13470",
+    "templates/parity-test-plan.md": "848fae86c85d2fb74d2a128bbe58c113f8b0762d1ca7598b289dac2d4632bcd0",
     "templates/policy-change-review.md": "ee6f927ad1ac1f7d477d585832dab60260e0f81cc2d187352672d4f3b0a06db1",
+    "templates/rule-specification.md": "c12d000835c4c56efd6c8ff962e84695c9e4e03b269be61dca07b00d48cde055",
     "templates/sampling-plan.md": "7e5b439478cdf4184fc9e18454bda2b8e937200cab2ce488d497b63e48c7476f",
     "templates/scenario-workpaper.md": "4e5b5e842763a4cd4ad2dda967eab6125d3094cd48271e29d387ee8a49696ad9",
-    "templates/validation-workpaper.md": "b91420b2777dd4d44a45c3b9eb8616b696b3d3013b3f8ed51ab1f58b368a8c91"
+    "templates/validation-workpaper.md": "b91420b2777dd4d44a45c3b9eb8616b696b3d3013b3f8ed51ab1f58b368a8c91",
+    "templates/value-reclassification-request.md": "e8c622100d703016d90ff40d112e8c5b52c772ab8ae7a5a062055dd0f89187f1"
   }
 }

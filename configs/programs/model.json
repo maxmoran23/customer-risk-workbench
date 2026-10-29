@@ -1,0 +1,36 @@
+{
+  "description": "Weighted mean of value scores with value overrides and rule floors. Weights and thresholds are illustrative.",
+  "missing": "neutral",
+  "model_id": "reference-categorical-model",
+  "override_high_tier": "VERY_HIGH",
+  "override_low_tier": "LOW",
+  "tiers": [
+    {
+      "minimum": 0,
+      "name": "LOW"
+    },
+    {
+      "minimum": 50.5,
+      "name": "MODERATE"
+    },
+    {
+      "minimum": 54,
+      "name": "HIGH"
+    },
+    {
+      "minimum": 58,
+      "name": "VERY_HIGH"
+    }
+  ],
+  "version": "1.0.0",
+  "weights": {
+    "account_purpose": 1.0,
+    "entity_type": 1.0,
+    "jurisdiction_exposure": 1.5,
+    "listed_status": 1.0,
+    "nature_of_business": 1.5,
+    "occupation": 1.0,
+    "source_of_funds": 1.5,
+    "source_of_wealth": 1.2
+  }
+}

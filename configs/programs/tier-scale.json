@@ -1,0 +1,15 @@
+{
+  "codes": {
+    "HIGH": 3,
+    "LOW": 1,
+    "MODERATE": 2,
+    "VERY_HIGH": 4
+  },
+  "scale_id": "reference-four-tier",
+  "tiers": [
+    "LOW",
+    "MODERATE",
+    "HIGH",
+    "VERY_HIGH"
+  ]
+}
